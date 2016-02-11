@@ -1,0 +1,36 @@
+body {
+    background-image: url("images/dinner.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    font-size: 16px;
+    padding: 3px;
+}
+
+#heading {
+    background-color: cyan;
+    opacity: 0.4;
+    height: 100px;
+    background-repeat: repeat-x;
+    
+}
+
+#heading .p {
+    font-style: solid;
+    color: #000000;
+}
+
+#start {
+    background-color: #FFFFFF;
+    opacity: 0.4;
+    height: 100px;
+    
+}
+
+h1 {
+    font-family: "Verdana", "Garamond";
+    font-size: 24px;
+    color: #000000;
+}
+
