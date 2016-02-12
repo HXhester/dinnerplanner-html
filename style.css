@@ -9,9 +9,10 @@ body {
 }
 
 .heading {
-    background-color: rgba(150,150,20,0.6);
+    background-color: rgba(150,150,20,0.8);
     height: 100px;
     background-repeat: repeat-x;
+    
 }
 
 p.heading {
@@ -21,7 +22,7 @@ p.heading {
 }
 
 #start {
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(250,250,255,0.7);
     height: 300px;
     width: 350px;
     
