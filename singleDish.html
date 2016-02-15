@@ -19,9 +19,6 @@
       
     <div id="sideMenu">
         <h3>My dinner</h3>
-        first dish<br>
-        second dish<br>
-        third dish
     </div>
       
     <div id="singleDish">
@@ -34,106 +31,9 @@
     </div>
       
     <div id="ingTable">
-<!--
-        <table>
-            <tr>
-                <th>Ingredient for <span id="numberOfGuest"></span> people.</th>
-            </tr>
-        
-        </table>
--->
         <h3>Ingredients for 4 people</h3>
-        <script>
-            function createTable(tableData) {
-                var table = document.createElement('table');
-                var tableBody = document.createElement('tbody');
-                var length = tableData.length;
-                
-                
-                for (var i = 0, tr, td; i < length; i++) {
-                    tr = document.createElement('tr');
-                        td = document.createElement('td');
-                        td.appendChild(document.createTextNode(tableData[i].name));
-                        tr.appendChild(td);
-                        
-                        td = document.createElement('td');
-                        td.appendChild(document.createTextNode(tableData[i].quantity));
-                        tr.appendChild(td);
-                        
-                        td = document.createElement('td');
-                        td.appendChild(document.createTextNode(tableData[i].unit));
-                        tr.appendChild(td);
-                        
-                        td = document.createElement('td');
-                        td.appendChild(document.createTextNode(tableData[i].price));
-                        tr.appendChild(td);
-                    table.appendChild(tr);
-                }
-
-                table.appendChild(tableBody);
-                document.body.appendChild(table);
-            };
-            
-            var tableData = [{ 
-			'name':'extra lean ground beef',
-			'quantity':115,
-			'unit':'g',
-			'price':20
-			},{
-			'name':'sea salt',
-			'quantity':0.7,
-			'unit':'g',
-			'price':3
-			},{
-			'name':'small onion, diced',
-			'quantity':0.25,
-			'unit':'',
-			'price':2
-			},{
-			'name':'garlic salt',
-			'quantity':0.7,
-			'unit':'g',
-			'price':2
-			},{
-			'name':'Italian seasoning',
-			'quantity':0.6,
-			'unit':'g',
-			'price':3
-			},{
-			'name':'dried oregano',
-			'quantity':0.3,
-			'unit':'g',
-			'price':3
-			},{
-			'name':'crushed red pepper flakes',
-			'quantity':0.6,
-			'unit':'g',
-			'price':3
-			},{
-			'name':'Worcestershire sauce',
-			'quantity':6,
-			'unit':'ml',
-			'price':7
-			},{
-			'name':'milk',
-			'quantity':20,
-			'unit':'ml',
-			'price':4
-			},{
-			'name':'grated Parmesan cheese',
-			'quantity':5,
-			'unit':'g',
-			'price':8
-			},{
-			'name':'seasoned bread crumbs',
-			'quantity':15,
-			'unit':'g',
-			'price':4
-			}];
-            createTable(tableData);
-        </script>
 <!-----------------------------------Just for illustration----------------------------------->
-        <a href="index.html"><button id="confirm" class="btn">Back to select dish</button></a>
+        <a href="print.html"><button id="confirm" class="btn">Confirm dish</button></a>
     </div>
     
     
@@ -143,11 +43,11 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
+	
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/SingleDishView.js"></script>
 	<script src="js/view/exampleViewController.js"></script>
-      
+    <script src="js/app.js"></script>  
   </body>
     
 </html>

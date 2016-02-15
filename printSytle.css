@@ -1,0 +1,49 @@
+.left{
+    float: left;
+    text-align: left;
+    margin: 2px 10px;
+    display: inline;
+    width: 80%;
+}
+
+.right {
+    float: right;
+    text-align: left;
+    margin: 2px 10px;
+    display: inline;
+}
+
+.printMenu {
+    display:inline-block;
+}
+
+
+.inRow{
+    margin: 20px;
+    
+}
+
+img{
+    width: 150px;
+}
+
+h5{
+    display: inline-block;
+    margin-left: 30px;
+    width: 100px;
+}
+
+p.discription {
+    display: inline-block;
+
+    margin-left: 30px; 
+    width: 400px;
+    align-self:center;
+}
+
+div.prepare {
+    display: inline-block;
+    margin-left: 30px;
+    width: 500px;
+    
+}

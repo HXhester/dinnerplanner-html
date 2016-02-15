@@ -10,6 +10,7 @@ var DinnerModel = function() {
 		//TODO Lab 2
         this.numberOfGuests = num;
         //The number selected value in combobox
+        
 	}
 
 	// should return 
@@ -32,19 +33,17 @@ var DinnerModel = function() {
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 2
-        for (i in this.selectedDishes) {
-            console.log(this.selectedDishes[i].name);
-            // add a <span> in index.html to show the seleted dishes
-        }
+        return dishes;
+        //return selectedDishes;
+    }
         
-	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		//TODO Lab 2
         for (i in this.selectedDishes) {
             console.log(this.selectedDishes[i].ingredients); 
-                    // add a <span> in index.html to show the seleted dishes
+                    
                     // maybe for shoppinglist
         }
 	}
@@ -109,7 +108,7 @@ var DinnerModel = function() {
 		}
 	}
 
-
+    
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and
