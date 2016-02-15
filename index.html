@@ -19,11 +19,12 @@
             <h1><a href="start.html" role="button">HOMELETTE </a> <small>From the best chefs in the world directly into your kitchen</small></h1>  
         </div>
         
-        <form>
-            <div class="container">
+            <div class="container" id="menu">
+                <form>
               <div class="form-group">
+                  <h4>YOUR MENU</h4>
                 <label for="People">People</label>
-                <select type="people" class="form-control" id="people">
+                <select type="people" class="form-control" id="numberOfGuests">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -36,12 +37,44 @@
                     <option>10</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" class="btn btn-default">Confirm</button>
+                </form>
             </div>
-        </form>
         
-        <div id="dish-selection"> 
-        <h2>A home dinner service</h2>
+        
+        <div class="dish-selection"> 
+        <h2>SELECT DISH</h2>
+            
+            <div id="navigation">
+                <div class="container-1">
+                    <button><span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span></button>
+                    <input type="search" id="search" placeholder="Search..." />
+                
+                </div>
+                <select type="dishtype" class="form-control" id="dishtype">
+                    <option>Appetizer</option>
+                    <option>Main</option>
+                    <option>Dessert</option>
+                </select>
+              </div>  
+               
+                
+                    
+            
+            <div class="row">
+              <div class="col-md-2"><a href="start.html"><img src="images/meatballs.jpg" id="meatballs"><h5>MEATBALLS</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+              <div class="col-md-2"><a href="start.html"><img src="images/icecream.jpg" id="icecream"><h5>ICECREAM</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+              <div class="col-md-2"><a href="start.html"><img src="images/sourdough.jpg" id="sourdough"><h5>SOURDOUGH</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+              <div class="col-md-2"><a href="start.html"><img src="images/toast.jpg" id="toast"><h5>TOAST</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+              <div class="col-md-2"><a href="start.html"><img src="images/bakedbrie.jpg" id="bakedbrie"><h5>BAKED BRIE</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+            </div>
+            
+           
+        
+            
+            
+            
+<!--
             <div id="exampleView">
                 <div>
                     Number of guests: <span id="numberOfGuests"></span>
@@ -51,7 +84,8 @@
                     <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
-        </div>
+-->
+    
         
 	</div>
 
