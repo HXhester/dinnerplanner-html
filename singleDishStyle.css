@@ -1,0 +1,58 @@
+body {
+    padding: 15px;
+    margin: 20px;
+}
+
+.heading {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border: solid;
+}
+
+#sideMenu {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:600px;
+    width:300px;
+    float:left;
+    padding:5px;
+    font-size: 20px;
+}
+
+#singleDish {
+    line-height: 20px;
+    z-index: 0;
+    position: absolute;
+    top: 150px;
+    left: 350px;
+}
+
+div p.discription {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#ingTable {
+    background-color:#eeeeee;
+    height:600px;
+    width:500px;
+    float:right;
+    font-size: 20px;
+    padding-left: 20px
+}
+
+table {
+    height:500px;
+    width:500px;
+    position: absolute;
+    top:220px;
+    right: 35px;
+    z-index: 2;
+    font-size: 20px;
+    border-top: solid;
+    border-bottom: solid;
+}
+
+td {
+    padding-left: 20px;
+}
