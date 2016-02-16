@@ -22,14 +22,10 @@ Use exampleView.js to append all the visual elements
             <h1><a href="start.html" role="button">HOMELETTE </a> <small>From the best chefs in the world directly into your kitchen</small></h1>  
         </div>
         
-            <div class="container" id="menu">
+            <div class="container" id="side-menu">
                 <form>
-              <div class="form-group">
-                  <h4>YOUR MENU</h4>
-                <label for="People">People</label>
-                <select type="people" class="form-control" id="numberOfGuests">
-
-                </select>
+              <div class="form-group" id="form-group">
+                  
                   <div class="row">
                     <div class="col-md-6" id="dishtitle">Dish</div>
                     <div class="col-md-6" id="cost">Cost</div>
@@ -48,7 +44,7 @@ Use exampleView.js to append all the visual elements
             </div>
         
         
-        <div class="dish-selection"> 
+        <div class="content"> 
         <h2>SELECT DISH</h2>
             
             <div id="navigation">
@@ -64,15 +60,17 @@ Use exampleView.js to append all the visual elements
                 </select>
               </div>  
                
-                
-                    
             
-            <div class="row">
-              <div class="col-md-2"><a href="afterAdding.html"><img src="images/meatballs.jpg" id="meatballs"><h5>MEATBALLS</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-              <div class="col-md-2"><a href="start.html"><img src="images/icecream.jpg" id="icecream"><h5>ICECREAM</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-              <div class="col-md-2"><a href="start.html"><img src="images/sourdough.jpg" id="sourdough"><h5>SOURDOUGH</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-              <div class="col-md-2"><a href="start.html"><img src="images/toast.jpg" id="toast"><h5>TOAST</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-              <div class="col-md-2"><a href="start.html"><img src="images/bakedbrie.jpg" id="bakedbrie"><h5>BAKED BRIE</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+            <div id="content-grid">
+<!--
+              <tr id="row1">
+                <td><a href="afterAdding.html"><img src="images/meatballs.jpg" id="meatballs"><h5>MEATBALLS</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></td>
+                <td><a href="start.html"><img src="images/icecream.jpg" id="icecream"><h5>ICECREAM</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></td>
+                <td><a href="start.html"><img src="images/sourdough.jpg" id="sourdough"><h5>SOURDOUGH</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></td>
+                <td><a href="start.html"><img src="images/toast.jpg" id="toast"><h5>TOAST</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></td>
+              <td><a href="start.html"><img src="images/bakedbrie.jpg" id="bakedbrie"><h5>BAKED BRIE</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></td>
+                </tr>
+-->
             </div>
                     
             
@@ -103,9 +101,9 @@ Use exampleView.js to append all the visual elements
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
+    <script src="indexView.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/SingleDishView.js"></script>
 	<script src="js/view/exampleViewController.js"></script>
     </div>
   </body>
