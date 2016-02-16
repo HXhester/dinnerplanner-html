@@ -12,7 +12,7 @@ var indexView = function (container, model) {
         var length = tableData.length;
         for(i=0; i < length; i++){
             
-            row.append('<div class="col-md-4">'+tableData[i].name+'<img src="images/'+tableData[i].image+'"></div>');
+            row.append('<div class="col-md-4"><a href="singleDish.html">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</a></div>');
 
             table.append(row);
         }
@@ -21,9 +21,9 @@ var indexView = function (container, model) {
     }
     
     
-    
+  //  console.log(model.getAllDishes(container.find("#dishtype").val(),null));
 //calling function createSelection//
-    createSelection(model.getAllDishes(container.find("#dishtype").val(),null).prevObject);
+    createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
 
     
 }

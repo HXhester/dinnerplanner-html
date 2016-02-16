@@ -19,22 +19,13 @@
 }
 #title{
     color: #FFFFFF;
+    font-family: "Trebuchet MS", Verdana, sans-serif;
 }
 
 .heading p {
     font-style: solid;
     color: #000000;
     opacity: 1.0;
-}
-
-#side-menu {
-    width: 250px;
-    padding-top: 50px;
-    margin-top:50px;
-    height: 500px;
-    float: left;
-    position: relative;
-    background-color: rgba(20,20,20,0.3);
 }
 
 .form-group .row {
@@ -61,14 +52,12 @@
 }
 
 .content {
-    padding: 20px;
+    padding-left: 20px;
     margin-left: 300px;
-    margin-top: 50px;
 /*    width: 100%;*/
     height: 100%;
     background-position: center;
     position: relative;
-    background-color: rgba(240,240,240,0.9);
     
 }
 
@@ -87,7 +76,7 @@
 }
 
 #content-grid {
-    padding-top: 100px;
+    padding-top: 50px;
     margin-right: 20px;
     padding-right: 20px;
     margin-top: 20px;
@@ -122,20 +111,44 @@
 
 #start {
 /*    background-color: rgba(250,250,255,0.8);*/
-    font-family: sans-serif;
-    color: #FFFFFF;
+    
     height: 400px;
     width: 800px;
     padding: 10px;
     margin-top: -200px;
     margin-left: -400px;
     position: fixed;
-    top:70%;
+    top:60%;
     left:50%;
     text-align: center;
+}
+
+#exampleView{
+    font-family: sans-serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: #FFFFFF;
+}
+
+#title2{
+    color: #FFFFFF;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: 50px;
+    padding-bottom: 40px;
 }
 
 #start p {
     font-size: 16pt;
 }
 
+#sideMenu {
+    line-height:30px;
+    background-color:#eeeeee;
+    width:300px;
+    float:left;
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+#sideMenu table{
+    border-bottom: solid;
+}
