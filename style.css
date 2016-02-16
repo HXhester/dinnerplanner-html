@@ -1,5 +1,6 @@
 #init-page  {
-    background-image: url("images/dinner.jpg");
+    background-image: url("images/Dinner-Party.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
     background-attachment: fixed;
@@ -10,11 +11,14 @@
 
 .heading {
     padding-top:25px;
-    background-color: rgba(220,150,20,0.9);
+    padding-left: 20px;
+    background-color: rgba(19,18,17,0.8);
     height: 100px;
     width: 100%;
     background-repeat: repeat-x;
-    
+}
+#title{
+    color: #FFFFFF;
 }
 
 .heading p {
@@ -59,7 +63,7 @@
     padding: 20px;
     margin-left: 300px;
     margin-top: 50px;
-    width: 100%;
+/*    width: 100%;*/
     height: 100%;
     background-position: center;
     position: relative;
@@ -107,20 +111,21 @@
 }
 
 #start {
-    background-color: rgba(250,250,255,0.8);
-    height: 200px;
-    width: 400px;
+/*    background-color: rgba(250,250,255,0.8);*/
+    font-family: sans-serif;
+    color: #FFFFFF;
+    height: 400px;
+    width: 800px;
     padding: 10px;
-    margin-top: 30px;
+    margin-top: -200px;
+    margin-left: -400px;
+    position: fixed;
+    top:70%;
+    left:50%;
+    text-align: center;
 }
 
 #start p {
-    font-size: 10pt;
-}
-
-h1 {
-    font-family: "Verdana", "Garamond";
-    font-size: 24px;
-    color: #000000;
+    font-size: 16pt;
 }
 

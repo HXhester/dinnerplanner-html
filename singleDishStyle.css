@@ -1,12 +1,21 @@
+
 body {
-    padding: 15px;
-    margin: 20px;
+    padding-left: 15px; 
+    padding-right: 15px;
+
 }
 
+
 .heading {
-    padding-bottom: 20px;
-    padding-top: 20px;
-    border: solid;
+
+    padding-top:25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: rgba(220,150,20,0.9);
+    height: 100px;
+    width: 100%;
+    background-repeat: repeat-x;
+    
 }
 
 #sideMenu {
