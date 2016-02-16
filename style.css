@@ -1,4 +1,4 @@
-#start {
+#init-page  {
     background-image: url("images/dinner.jpg");
     background-repeat: no-repeat;
     background-position: center top;
@@ -10,14 +10,14 @@
 
 .heading {
     padding-top:25px;
-    background-color: rgba(150,150,20,0.8);
+    background-color: rgba(220,150,20,0.9);
     height: 100px;
     width: 100%;
     background-repeat: repeat-x;
     
 }
 
-p.heading {
+.heading p {
     font-style: solid;
     color: #000000;
     opacity: 1.0;
@@ -30,8 +30,29 @@ p.heading {
     height: 500px;
     position: fixed;
     background-color: rgba(20,20,20,0.3);
-    
-    
+}
+
+.form-group .row {
+    padding-top: 10px;
+}
+
+#confirm {
+    margin-top:30px;
+}
+
+#dishtitle {
+    font-style: bold;
+    float: left;
+
+}
+#cost {
+    float: right;
+    border-bottom-width: thick;
+    border-bottom-color: black;
+}
+
+#numberOfGuests {
+    width: 50px;
 }
 
 .dish-selection {
@@ -60,7 +81,7 @@ p.heading {
     
 }
 
-.row {
+.dish-selection .row {
     padding-top: 70px;
     margin-right: 20px;
     padding-right: 20px;
@@ -86,11 +107,15 @@ p.heading {
 }
 
 #start {
-    background-color: rgba(250,250,255,0.7);
-    height: 300px;
-    width: 350px;
-    
-    
+    background-color: rgba(250,250,255,0.8);
+    height: 200px;
+    width: 400px;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+#start p {
+    font-size: 10pt;
 }
 
 h1 {
