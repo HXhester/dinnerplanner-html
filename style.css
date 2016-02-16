@@ -27,12 +27,13 @@
     opacity: 1.0;
 }
 
-#menu {
+#side-menu {
     width: 250px;
     padding-top: 50px;
     margin-top:50px;
     height: 500px;
-    position: fixed;
+    float: left;
+    position: relative;
     background-color: rgba(20,20,20,0.3);
 }
 
@@ -59,7 +60,7 @@
     width: 50px;
 }
 
-.dish-selection {
+.content {
     padding: 20px;
     margin-left: 300px;
     margin-top: 50px;
@@ -85,19 +86,28 @@
     
 }
 
-.dish-selection .row {
-    padding-top: 70px;
+#content-grid {
+    padding-top: 100px;
     margin-right: 20px;
     padding-right: 20px;
+    margin-top: 20px;
 }
 
-.col-md-2 {
-    width: 100px:
-}
-
-.row p {
+#row .col-md-4 {
     font-family:"Arial", "Times New Roman";
-    font-size: 9pt;
+    font-size: 10pt;
+    margin: 10px;
+        
+}
+
+
+#row .col-md-4 {
+    
+    width: 150px;
+}
+
+#content-grid td {
+    display:inline;
     
 }
 
