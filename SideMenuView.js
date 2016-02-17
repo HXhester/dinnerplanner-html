@@ -1,8 +1,23 @@
 var SideMenu =function(container, model){
+    
+    //model.addObserver(this);
+    
     this.numberOfGuests = container.find("#numberOfGuests");
-//    this.numberOfGuests.insertBefore('<label>People</label>');
     this.numberOfGuests.html('<option>1</option><option>2</option><option>3</option>');
-    this.numberOfGuests.before('<div>People:</div>')
+    this.numberOfGuests.before('<div>People:</div>');
+    
+
+    //console.log(this.numberOfGuests.find('option:selected').val());
+//    
+//    function update(obj){
+//        
+//        // set number of guest
+//        model.setNumberOfGuests(this.numberOfGuests.find('option:selected').val(),obj);
+//        
+//    }
+//    
+//    update(container);
+    
     function createMenu(menu) {
         var table = $('<table class="table table-hover"></table>');
         table.append('<th>dish</th><th>cost</th>')
@@ -21,9 +36,11 @@ var SideMenu =function(container, model){
         $('#sideMenu').append(table);
         
         table.after('<div><a href="print.html"><button class="btn">Confirm Dinner</button></a></div>');
-        table.after('<div>In Total:</div>');
+        table.after('<div>In Total:'+model.getTotalMenuPrice()+'</div>');
         
     }
-        createMenu(model.getFullMenu());
+    createMenu(model.getFullMenu());
+    
+    model.setNumberOfGuests(this.numberOfGuests.find('option:selected').val(),obj);
         
 }

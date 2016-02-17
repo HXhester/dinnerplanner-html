@@ -28,7 +28,7 @@ var SingleDishView = function (container, model) {
     }
         
     createTable(model.getDish(1).ingredients);
-    
+    $("#addDish").click(model.addDishToMenu(1));
 
 }
  

@@ -6,11 +6,11 @@ var DinnerModel = function() {
     this.selectedDishes = []; // an list of dishes
     this.numberOfGuests = 0;
 
-	this.setNumberOfGuests = function(num) {
+	this.setNumberOfGuests = function(num,obj) {
 		//TODO Lab 2
         this.numberOfGuests = num;
-        //The number selected value in combobox
-        
+        notifyObservers(obj);
+    
 	}
 
 	// should return 
@@ -33,8 +33,9 @@ var DinnerModel = function() {
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 2
-        return dishes;
-        //return selectedDishes;
+        
+        //return dishes;
+        return this.selectedDishes;
     }
         
 
@@ -53,8 +54,9 @@ var DinnerModel = function() {
         //TODO Lab 2
         var totalprice = 0;
         for (i in this.selectedDishes) {
-            totalprice += this.selectedDishes[i].price;
+            totalprice += this.selectedDishes[i].price * this.numberOfGuests;
         }
+        return totalprice;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -107,7 +109,22 @@ var DinnerModel = function() {
 			}
 		}
 	}
-
+    
+//-----------------------------------------------lab 3--------------------------------------------------
+    this.observers = [];
+    
+    // add new observer to the array
+    this.addObserver = function (observer) {
+        
+        
+        this.observers.push(observer);
+        
+    }
+    
+    //call the update method on all the observers in the array
+    var notifyObservers = function (obj) {
+        this.observers.handleUpdate;
+    }
     
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,

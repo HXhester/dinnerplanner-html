@@ -2,8 +2,7 @@ var indexView = function (container, model) {
     
     this.MenuTitle = container.find("#form-group");
     
-    this.MenuTitle.html("<h4>YOUR MENU</h4><br><label for='People'>People</label><br><select type='people' class='form-control' id='numberOfGuests'></select><br>");
-    
+//    this.MenuTitle.html("<h4>YOUR MENU</h4><br><label for='People'>People</label><br><select type='people' class='form-control' id='numberOfGuests'></select><br>");
 
     
     function createSelection(tableData) {
@@ -19,6 +18,8 @@ var indexView = function (container, model) {
 
         $('#content-grid').append(table);
     }
+    
+//model.getAllDishes(container.find('#search').val();
     
     
   //  console.log(model.getAllDishes(container.find("#dishtype").val(),null));
