@@ -9,6 +9,7 @@ $(function() {
     var exampleView = new SideMenu($("#view"),model);
     //var exampleView = new indexView($("#view"), model);
     var example = new indexView($("#view"), model);
+    var finalMenuView = new finalMenuView($("#finalmenu"), model);
     //add controller
     //var showDish = new SingleDishView($("#view"), model);
     
