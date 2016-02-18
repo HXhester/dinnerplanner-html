@@ -55,7 +55,7 @@
     padding-left: 20px;
     margin-left: 300px;
 /*    width: 100%;*/
-    height: 100%;
+/*    height: auto;*/
     background-position: center;
     position: relative;
     
@@ -80,20 +80,21 @@
     margin-right: 20px;
     padding-right: 20px;
     margin-top: 20px;
+/*    height: inherit;*/
 }
 
 #row .col-md-4 {
     font-family:"Arial", "Times New Roman";
     font-size: 10pt;
     margin: 10px;
-        
-}
-
-
-#row .col-md-4 {
-    
     width: 150px;
+    height: 150px;
 }
+
+#row .col-md-4 img {
+/*    height:inherit;*/
+}
+
 
 #content-grid td {
     display:inline;
