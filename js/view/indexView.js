@@ -1,9 +1,24 @@
 var indexView = function (container, model) {
     
-    this.MenuTitle = container.find("#form-group");
-    
-//    this.MenuTitle.html("<h4>YOUR MENU</h4><br><label for='People'>People</label><br><select type='people' class='form-control' id='numberOfGuests'></select><br>");
 
+    this.navigation = container.find("#navigation");
+    this.dishtype = container.find("#dishtype");
+    console.log(this.dishtype.val());
+    
+//    console.log("hej");
+//    //Adding dishtype options to combobox
+//    var option1 = this.createElement(option);
+//    option1.text = "starter";
+//    var option2 = this.createElement(option);
+//    option2.text = "main dish";
+//    var option3 = this.createElement(option);
+//    option3.text = "dessert";
+//    $('#dishtype').add(option1); 
+//    
+
+   
+    
+//    this.navigation.html('<button><span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span></button><br><input type="search" id="search" placeholder="Search..." />');
     
     function createSelection(tableData) {
         var table = $('<div id="table"></div>');
@@ -22,7 +37,7 @@ var indexView = function (container, model) {
 //model.getAllDishes(container.find('#search').val();
     
     
-  //  console.log(model.getAllDishes(container.find("#dishtype").val(),null));
+  
 //calling function createSelection//
     createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
 

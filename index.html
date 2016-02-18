@@ -13,7 +13,6 @@ Use exampleView.js to append all the visual elements
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="startbootstrap-simple-sidebar/css/simple-sidebar.css">
       
   </head>
   <body>
@@ -29,6 +28,12 @@ Use exampleView.js to append all the visual elements
       
       <div id="sideMenu">
 <!--    xuhan      -->
+          
+          <div class="container" id="sideMenu">
+            <h3>My dinner</h3>
+            <select id="numberOfGuests">
+            </select>
+        </div>
       </div>
       
       <div id="singleDish">
@@ -51,34 +56,31 @@ Use exampleView.js to append all the visual elements
       <div id="view-index" class="container-fluid">
 <!--    Sofie      -->
         
-        <div class="container" id="sideMenu">
-            <h3>My dinner</h3>
-            <select id="numberOfGuests">
-            </select>
-        </div>
-        
-        
-        <div class="content"> 
-        <h2>SELECT DISH</h2>
-            
-            <div id="navigation">
-                <div class="container-1">
+
+        <div id="navigation">
+<!-- Tried to add this to indexView-->
                     <button><span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span></button>
                     <input type="search" id="search" placeholder="Search..." />
+
                 
-                </div>
                 <select type="dishtype" class="form-control" id="dishtype">
                     <!--     Change with type of dish in model    -->
                     <option>starter</option>
                     <option>main dish</option>
                     <option>dessert</option>
                 </select>
-              </div>  
-               
-
-            <div id="content-grid">
+        </div> 
+          <div id="content-grid">
                 
             </div>
+      </div>
+        <div class="content"> 
+<!--        <h2>SELECT DISH</h2>-->
+            
+             
+               
+
+            
                     
             
 <!--
@@ -96,7 +98,7 @@ Use exampleView.js to append all the visual elements
         
         <!--just add a picture for link to singleDish page-->
         
-	</div>
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -104,11 +106,12 @@ Use exampleView.js to append all the visual elements
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
-    <script src="indexView.js"></script>
-    <script src="SideMenuView.js"></script>
+    <script src="js/view/indexView.js"></script>
+    <script src="js/view/finalMenuView.js"></script>
+    <script src="js/view/SideMenuView.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleViewController.js"></script>
-    </div>
+      </div>
   </body>
 </html>

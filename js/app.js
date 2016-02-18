@@ -4,11 +4,11 @@ $(function() {
 	var model = new DinnerModel();
 	
 	//And create the needed controllers and views
-	//var exampleView = new SingleDishView($("#view"), model);
-    //var exampleView = new PrintView($("#view"), model);
-    var exampleView = new SideMenu($("#view"),model);
-    //var exampleView = new indexView($("#view"), model);
-    var example = new indexView($("#view"), model);
+	//var SingleDishView = new SingleDishView($("#view"), model);
+    //var PrintView = new PrintView($("#view"), model);
+    var SideMenuView = new SideMenu($("#sideMenu"),model);
+    var indexView = new view-index($("#view-index"), model);
+    //var example = new indexView($("#view"), model);
     var finalMenuView = new finalMenuView($("#finalmenu"), model);
     //add controller
     //var showDish = new SingleDishView($("#view"), model);
