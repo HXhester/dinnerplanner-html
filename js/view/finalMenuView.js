@@ -1,4 +1,4 @@
-var finalMenuView = function (container, model) {
+var finalMenu = function (container, model) {
     
     this.finalMenu = container.find("#finalMenu");
     this.printTop = container.find("#printTop");

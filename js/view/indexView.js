@@ -2,23 +2,29 @@ var indexView = function (container, model) {
     
 
     this.navigation = container.find("#navigation");
-    this.dishtype = container.find("#dishtype");
+    
     
     
 //    console.log("hej");
 //    //Adding dishtype options to combobox
-    var option1 = document.createElement("OPTION");
-    option1.text = "starter";
-    var option2 = this.createElement(option);
-    option2.text = "main dish";
-    var option3 = this.createElement(option);
-    option3.text = "dessert";
-    $('#dishtype').add(option1); 
-    console.log(this.dishtype.val());
+//    var option1 = document.createElement("OPTION");
+//    option1.text = "starter";
+//    var option2 = this.createElement(option);
+//    option2.text = "main dish";
+//    var option3 = this.createElement(option);
+//    option3.text = "dessert";
+//    $('#dishtype').add(option1); 
+//    console.log(this.dishtype.val());
 
    
     
-    this.navigation.html('<button><span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span></button><br><input type="search" id="search" placeholder="Search..." />');
+    this.navigation.prepend('<button><span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span></button><br><input type="search" id="search" placeholder="Search..." />');
+    
+    this.navigation.append('<select type="dishtype" class="form-control" id="dishtype"></select>')
+    
+    this.dishtype = container.find("#dishtype");
+    
+    this.dishtype.html('<option>starter</option><option>main dish</option><option>dessert</option>');
     
     function createSelection(tableData) {
         var table = $('<div id="table"></div>');
@@ -40,7 +46,7 @@ var indexView = function (container, model) {
   
 //calling function createSelection//
     createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
-    console.log(model.getAllDishes(container.find("#dishtype").val(),null));
+    //console.log(model.getAllDishes(container.find("#dishtype").val(),null));
 
     
 }
