@@ -9,7 +9,7 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num,obj) {
 		//TODO Lab 2
         this.numberOfGuests = num;
-        notifyObservers(obj);
+        //notifyObservers(obj);
     
 	}
 

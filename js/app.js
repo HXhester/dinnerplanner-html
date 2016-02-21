@@ -7,9 +7,9 @@ $(function() {
 	//var SingleDishView = new SingleDishView($("#view"), model);
     //var PrintView = new PrintView($("#view"), model);
     var SideMenuView = new SideMenu($("#sideMenu"),model);
-    var indexView = new view-index($("#view-index"), model);
+    var indexview = new indexView($("#view-index"), model);
     //var example = new indexView($("#view"), model);
-    var finalMenuView = new finalMenuView($("#finalmenu"), model);
+    //var finalMenuView = new finalMenuView($("#finalmenu"), model);
     //add controller
     //var showDish = new SingleDishView($("#view"), model);
     

@@ -41,6 +41,6 @@ var SideMenu =function(container, model){
     }
     createMenu(model.getFullMenu());
     
-    model.setNumberOfGuests(this.numberOfGuests.find('option:selected').val(),obj);
+    model.setNumberOfGuests(this.numberOfGuests.find('option:selected').val(),null);
         
 }
