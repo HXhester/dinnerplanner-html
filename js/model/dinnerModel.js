@@ -9,7 +9,8 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num,obj) {
 		//TODO Lab 2
         this.numberOfGuests = num;
-        //notifyObservers(obj);
+        console.log(this);
+        this.notifyObservers(obj);
     
 	}
 
@@ -34,8 +35,8 @@ var DinnerModel = function() {
 	this.getFullMenu = function() {
 		//TODO Lab 2
         
-        //return dishes;
-        return this.selectedDishes;
+        return dishes;
+        //return this.selectedDishes;
     }
         
 
@@ -119,12 +120,16 @@ var DinnerModel = function() {
         
         this.observers.push(observer);
         
-    }
+        
+    };
     
     //call the update method on all the observers in the array
-    var notifyObservers = function (obj) {
-        this.observers.handleUpdate;
-    }
+    this.notifyObservers=function(obj) {
+        console.log(this.observers);
+        for( var i=0; i<this.observers.length; i++){
+            this.observers[i](this,obj);
+        }
+    };
     
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,

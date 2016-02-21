@@ -1,5 +1,8 @@
 var PrintView = function(container, model){
 
+    container.html('<div id="printTop"><h2 class="left">My Dinner: 4 people</h2><a href="index.html" class="right"><button id="back" class="btn">Go back and edit dinner</button></a></div>');
+    container.append('<div class="printMenu"></div>');
+    
     function printMenu(menu){
         var table = $('<table class="table"></table>');
         var length = menu.length;
@@ -16,3 +19,8 @@ var PrintView = function(container, model){
     
     printMenu(model.getFullMenu());
 }
+
+
+            
+
+    

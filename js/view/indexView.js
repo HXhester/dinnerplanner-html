@@ -1,12 +1,13 @@
-var indexView = function (container, model) {
+var IndexView = function (container, model) {
     
 
+    container.html('<div id="navigation"></div><div id="content-grid"></div>');
     this.navigation = container.find("#navigation");
-    
     
     
 //    console.log("hej");
 //    //Adding dishtype options to combobox
+
 //    var option1 = document.createElement("OPTION");
 //    option1.text = "starter";
 //    var option2 = this.createElement(option);
@@ -15,8 +16,10 @@ var indexView = function (container, model) {
 //    option3.text = "dessert";
 //    $('#dishtype').add(option1); 
 //    console.log(this.dishtype.val());
+    
+    
 
-   
+    
     
     this.navigation.prepend('<button><span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span></button><br><input type="search" id="search" placeholder="Search..." />');
     
@@ -36,8 +39,17 @@ var indexView = function (container, model) {
 
             table.append(row);
         }
-
-        $('#content-grid').append(table);
+//        var table = $('<table id="table"></table>');
+//        var row = $('<tr id="row"></tr>');
+//        var length = tableData.length;
+//        for(i=0; i < length; i++){
+//            
+//            row.append('<td class="col-md-4"><a href="singleDish.html">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</a></td>');
+//
+//            table.append(row);
+//        }
+        console.log(container);
+        container.append(table);
     }
     
 //model.getAllDishes(container.find('#search').val();

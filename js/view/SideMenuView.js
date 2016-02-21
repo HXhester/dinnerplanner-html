@@ -1,26 +1,28 @@
 var SideMenu =function(container, model){
     
-    //model.addObserver(this);
+    this.container = container;
     
+    this.numberOfGuests = container;
+    this.numberOfGuests.html('<h3>My dinner</h3><select id="numberOfGuests"><option>1</option><option>2</option><option>3</option></select>');
     this.numberOfGuests = container.find("#numberOfGuests");
-    this.numberOfGuests.html('<option>1</option><option>2</option><option>3</option>');
     this.numberOfGuests.before('<div>People:</div>');
-    
 
-    //console.log(this.numberOfGuests.find('option:selected').val());
-//    
-//    function update(obj){
-//        
-//        // set number of guest
-//        model.setNumberOfGuests(this.numberOfGuests.find('option:selected').val(),obj);
-//        
-//    }
-//    
-//    update(container);
+    this.getNumberOfGuests=function(){
+        return this.numberOfGuests.find('option:selected').val();
+    }
+    
+    this.update=function(obj,arg){
+        // set number of guests, change view with model
+        container.find('#totalPrice').html('In Total:'+model.getNumberOfGuests());
+        
+    }
+    model.addObserver(this.update); 
+    this.update(container);
+
     
     function createMenu(menu) {
         var table = $('<table class="table table-hover"></table>');
-        table.append('<th>dish</th><th>cost</th>')
+        table.append('<th>dish</th><th>cost</th>');
         var length = menu.length;
         for(i=0; i < length; i++){
             var row = $('<tr></tr>');
@@ -32,15 +34,13 @@ var SideMenu =function(container, model){
             row.append('<td>'+cost+'</td>');
             table.append(row);
         }
-
-        $('#sideMenu').append(table);
         
+        container.append(table);
+        console.log(this.numberOfGuests);
         table.after('<div><a href="print.html"><button class="btn">Confirm Dinner</button></a></div>');
-        table.after('<div>In Total:'+model.getTotalMenuPrice()+'</div>');
-        
+        //table.after('<div>In Total:'+model.getTotalMenuPrice()+'</div>');
+        table.after('<div id="totalPrice">In Total:'+container.find('option:selected').val()+'</div>');
     }
     createMenu(model.getFullMenu());
-    
-    model.setNumberOfGuests(this.numberOfGuests.find('option:selected').val(),null);
-        
+ 
 }
