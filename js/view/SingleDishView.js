@@ -2,6 +2,7 @@
 //It's single Dish
 var SingleDish = function (container, model) {
 	
+    this.container = container;
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 	this.numberOfGuests = container.find("#numberOfGuests");
@@ -34,7 +35,7 @@ var SingleDish = function (container, model) {
     }
         
     createTable(model.getDish(1).ingredients);
-    $("#addDish").click(model.addDishToMenu(1));
+   // $("#addDish").click(model.addDishToMenu(1));
 
 }
  
