@@ -1,9 +1,9 @@
 var IndexView = function (container, model) {
     
-
+    this.container = container;
     container.html('<div id="navigation"></div><div id="content-grid"></div>');
     this.navigation = container.find("#navigation");
-    
+    //this.contentgrid = container.find("#content-grid");
     
     
     this.navigation.prepend('<button><span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span></button><br><input type="search" id="search" placeholder="Search..." />');
@@ -16,8 +16,7 @@ var IndexView = function (container, model) {
     //TODO SOFIE UPDATE SELECTION BASED ON DISHTYPE
     
     
-    
-    function createSelection(tableData) {
+    this.createSelection = function(tableData) {
         var table = $('<div id="table"></div>');
         var row = $('<div id="row"></div>');
         var length = tableData.length;
@@ -28,7 +27,7 @@ var IndexView = function (container, model) {
             table.append(row);
         }
 
-        //console.log(container);
+
         container.append(table);
     }
     
@@ -37,7 +36,7 @@ var IndexView = function (container, model) {
     
   
 //calling function createSelection//
-    createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
+    //this.createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
     //console.log(model.getAllDishes(container.find("#dishtype").val(),null));
 
     this.getSelectedType = function(){
@@ -45,14 +44,15 @@ var IndexView = function (container, model) {
         return this.dishtype.find('option:selected').val();
     }
     
-         this.update = function(obj,arg){
+    this.update1 = function(obj,arg){
         // change dishes based on combobox #dishtype, change view with model
-         createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
+        this.createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
         console.log("updating dishes");
     }
     
-    model.addObserver(this.update); 
-    this.update(container);
+    model.addObserver(this.update1); 
+    this.update1(container);
+
     
     
 }
