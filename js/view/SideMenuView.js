@@ -13,6 +13,7 @@ var SideMenu =function(container, model){
     
     this.update=function(obj,arg){
         // set number of guests, change view with model
+        console.log("updating guests");
         container.find('#totalPrice').html('In Total:'+model.getNumberOfGuests());
         
     }
@@ -36,8 +37,8 @@ var SideMenu =function(container, model){
         }
         
         container.append(table);
-        console.log(this.numberOfGuests);
-        table.after('<div><a href="print.html"><button class="btn">Confirm Dinner</button></a></div>');
+        //console.log(this.numberOfGuests);
+        table.after('<div><button class="btn">Confirm Dinner</button></div>');
         //table.after('<div>In Total:'+model.getTotalMenuPrice()+'</div>');
         table.after('<div id="totalPrice">In Total:'+container.find('option:selected').val()+'</div>');
     }

@@ -9,7 +9,7 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num,obj) {
 		//TODO Lab 2
         this.numberOfGuests = num;
-        console.log(this);
+        //console.log(this);
         this.notifyObservers(obj);
     
 	}
@@ -125,7 +125,7 @@ var DinnerModel = function() {
     
     //call the update method on all the observers in the array
     this.notifyObservers=function(obj) {
-        console.log(this.observers);
+        //console.log(this.observers);
         for( var i=0; i<this.observers.length; i++){
             this.observers[i](this,obj);
         }

@@ -1,8 +1,8 @@
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 var finalMenu = function (container, model) {
-=======
-var FinalMenuView = function (container, model) {
->>>>>>> Stashed changes
+//=======
+//var FinalMenuView = function (container, model) {
+//>>>>>>> Stashed changes
     
     this.finalMenu = container.find("#finalMenu");
     this.printTop = container.find("#printTop");

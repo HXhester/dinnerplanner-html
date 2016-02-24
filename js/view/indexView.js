@@ -5,29 +5,17 @@ var IndexView = function (container, model) {
     this.navigation = container.find("#navigation");
     
     
-//    console.log("hej");
-//    //Adding dishtype options to combobox
-
-//    var option1 = document.createElement("OPTION");
-//    option1.text = "starter";
-//    var option2 = this.createElement(option);
-//    option2.text = "main dish";
-//    var option3 = this.createElement(option);
-//    option3.text = "dessert";
-//    $('#dishtype').add(option1); 
-//    console.log(this.dishtype.val());
-    
-    
-
-    
     
     this.navigation.prepend('<button><span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span></button><br><input type="search" id="search" placeholder="Search..." />');
     
-    this.navigation.append('<select type="dishtype" class="form-control" id="dishtype"></select>')
+    //TODO SOFIE SEARCH BUTTON
     
+    this.navigation.append('<select class="form-control" id="dishtype"><option>starter</option><option>main dish</option><option>dessert</option></select>')
     this.dishtype = container.find("#dishtype");
     
-    this.dishtype.html('<option>starter</option><option>main dish</option><option>dessert</option>');
+    //TODO SOFIE UPDATE SELECTION BASED ON DISHTYPE
+    
+    
     
     function createSelection(tableData) {
         var table = $('<div id="table"></div>');
@@ -35,20 +23,12 @@ var IndexView = function (container, model) {
         var length = tableData.length;
         for(i=0; i < length; i++){
             
-            row.append('<div class="col-md-4"><a href="singleDish.html">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</a></div>');
+            row.append('<div class="col-md-4">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</div>');
 
             table.append(row);
         }
-//        var table = $('<table id="table"></table>');
-//        var row = $('<tr id="row"></tr>');
-//        var length = tableData.length;
-//        for(i=0; i < length; i++){
-//            
-//            row.append('<td class="col-md-4"><a href="singleDish.html">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</a></td>');
-//
-//            table.append(row);
-//        }
-        console.log(container);
+
+        //console.log(container);
         container.append(table);
     }
     
@@ -60,5 +40,19 @@ var IndexView = function (container, model) {
     createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
     //console.log(model.getAllDishes(container.find("#dishtype").val(),null));
 
+    this.getSelectedType = function(){
+        console.log(this.dishtype.find('option:selected').val());
+        return this.dishtype.find('option:selected').val();
+    }
+    
+         this.update = function(obj,arg){
+        // change dishes based on combobox #dishtype, change view with model
+         createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
+        console.log("updating dishes");
+    }
+    
+    model.addObserver(this.update); 
+    this.update(container);
+    
     
 }
