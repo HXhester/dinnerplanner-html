@@ -115,11 +115,9 @@ var DinnerModel = function() {
     this.observers = [];
     
     // add new observer to the array
-    this.addObserver = function (observer) {
+    this.addObserver = function (observer) {    
         
-        
-        this.observers.push(observer);
-        
+        this.observers.push(observer);    
         
     };
     

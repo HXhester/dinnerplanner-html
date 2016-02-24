@@ -3,7 +3,6 @@ var IndexView = function (container, model) {
     this.container = container;
     container.html('<div id="navigation"></div><div id="content-grid"></div>');
     this.navigation = container.find("#navigation");
-    //this.contentgrid = container.find("#content-grid");
     
     
     this.navigation.prepend('<button><span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span></button><br><input type="search" id="search" placeholder="Search..." />');
@@ -20,9 +19,11 @@ var IndexView = function (container, model) {
         var table = $('<div id="table"></div>');
         var row = $('<div id="row"></div>');
         var length = tableData.length;
+        
         for(i=0; i < length; i++){
-            
-            row.append('<div class="col-md-4">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</div>');
+  // <a> is no need, change view in the controller
+            row.append('<div class="col-md-4" id="'+tableData[i].id+'">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</div>');
+
 
             table.append(row);
         }

@@ -10,19 +10,15 @@ var SideMenu =function(container, model){
     this.getNumberOfGuests=function(){
         return this.numberOfGuests.find('option:selected').val();
     }
-    
-    this.update=function(obj,arg){
-        // set number of guests, change view with model
-        console.log("updating guests");
-        container.find('#totalPrice').html('In Total:'+model.getNumberOfGuests());
-        
-    }
-    model.addObserver(this.update); 
-    this.update(container);
 
     
+    this.numberOfGuests.after('<div><table class="table table-hover" id="selectMenu"></table></div>');
+    
+    
     function createMenu(menu) {
-        var table = $('<table class="table table-hover"></table>');
+        //var table = $('<div id="selectMenuTable"><table class="table table-hover" id="selectMenu"></table></div>');
+        var table = container.find('#selectMenu')
+        //table.append('<table class="table table-hover" id="selectMenu"></table>');
         table.append('<th>dish</th><th>cost</th>');
         var length = menu.length;
         for(i=0; i < length; i++){
@@ -37,11 +33,24 @@ var SideMenu =function(container, model){
         }
         
         container.append(table);
-        //console.log(this.numberOfGuests);
-        table.after('<div><button class="btn">Confirm Dinner</button></div>');
-        //table.after('<div>In Total:'+model.getTotalMenuPrice()+'</div>');
-        table.after('<div id="totalPrice">In Total:'+container.find('option:selected').val()+'</div>');
+        table.append('<div><a href="print.html"><button class="btn">Confirm Dinner</button></a></div>');
+        table.append('<div id="totalPrice">In Total:'+container.find('option:selected').val()+'</div>');
+    
     }
-    createMenu(model.getFullMenu());
+    
+    
+    //createMenu(model.getFullMenu());
+    this.update=function(obj,arg){
+        // Calculate price of the menu
+        container.find('#totalPrice').html('In Total:'+model.getNumberOfGuests());
+        
+        // When the selected menu changes, update the table
+        //container.find('#selectMenuTable').html(''); both works
+        container.find('#selectMenu').empty();
+        createMenu(model.getFullMenu());
+        
+    }
+    model.addObserver(this.update); 
+    this.update(container);
  
 }

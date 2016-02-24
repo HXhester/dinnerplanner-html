@@ -4,4 +4,6 @@ var SideMenuController = function(view, model) {
         model.setNumberOfGuests(view.getNumberOfGuests());
     })
     
+    $('#c')
+    
 }
