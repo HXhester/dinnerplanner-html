@@ -1,18 +1,10 @@
 var indexController = function(view, model) {
-<<<<<<< HEAD
     
     $('#1').on("click",function(){
         console.log("change to single dish");
         stateController.changeMainView(new SingleDish($("#singleDish"),model,1),new singleDishController($("#singleDish"),model,1));
     });
     
-    $('#dishtype').on("change", function(){
-        console.log("changing dishtypes");
-    });
-}
-                            
-=======
- 
    $('#dishtype').on("change", function(){
        view.contentgrid.html("");
        console.log("changing dishtypes");
@@ -41,4 +33,3 @@ var indexController = function(view, model) {
    })
    
 }
->>>>>>> master

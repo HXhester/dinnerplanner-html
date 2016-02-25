@@ -17,15 +17,12 @@ var StateController = function(model) {
         this.currentMainView.container.empty();
         this.currentMainView = view;
         this.currentMainController = viewController; 
-<<<<<<< HEAD
-        //console.log(this.currentMainView);
+
     }
-    //console.log(this.currentSideView.container);
-=======
-        console.log(this.currentMainView);
-    }   
+
+        console.log(this.currentMainView);   
    // console.log(this.currentSideView.container);
->>>>>>> master
+
     this.currentSideView.container.hide();
     this.indexView.container.hide();
     this.SingleDishView.container.hide();
