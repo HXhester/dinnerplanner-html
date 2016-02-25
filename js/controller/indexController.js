@@ -18,11 +18,13 @@ var indexController = function(view, model) {
    })
    
    $('.col-md-4').click(function() {
-       //console.log("klick!");
-     //get ID for selected dish
-       //stateController.indexView.container.hide();
-       //stateController.singleDish.container.show();
+     
+       stateController.indexView.container.hide();
+       stateController.SingleDishView.container.show();
        
+       //get ID for selected dish, call model for that dish
+       //var id = $(this).attr('id');
+       //SingleDish(container, model, id);
    })
    
 }
