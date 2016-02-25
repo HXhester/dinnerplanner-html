@@ -1,7 +1,13 @@
 //ExampleView Object constructor
 //It's single Dish
+<<<<<<< HEAD
 var SingleDish = function (container, model, Id) {
 	Id = 1;
+=======
+var SingleDish = function (container, model) {
+	
+    this.container = container;
+>>>>>>> master
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 	this.container = container;
@@ -30,6 +36,7 @@ var SingleDish = function (container, model, Id) {
         $('#ingTable h3').after(table);
     }
         
+<<<<<<< HEAD
     createTable(model.getDish(Id).ingredients);
     
     this.updateSD=function(obj,arg){
@@ -39,6 +46,11 @@ var SingleDish = function (container, model, Id) {
     }
     model.addObserver(this.updateSD); 
     this.updateSD(container);
+=======
+    createTable(model.getDish(1).ingredients);
+   // $("#addDish").click(model.addDishToMenu(1));
+
+>>>>>>> master
 }
  
       

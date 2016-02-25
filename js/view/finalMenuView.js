@@ -8,6 +8,9 @@ var finalMenu = function (container, model) {
     this.printTop = container.find("#printTop");
     
     this.printTop.html("<h2 class='left''>My Dinner: 4 people</h2><br><a href='index.html' class='right'><button id='back' class='btn'>Go back and edit dinner</button></a>");
+    this.finalMenu.append("<div id='menugrid'></div>");
+    this.menugrid = container.find("#menugrid");
+    
     
         function printDishes(tableData) {
         var table = $('<div id="table"></div>');
@@ -20,7 +23,7 @@ var finalMenu = function (container, model) {
             table.append(row);
         }
 
-        $('#finalMenu').append(table);
+        this.menugrid.append(table);
     }
     
     printDishes(model.selectedDishes);
