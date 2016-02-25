@@ -1,10 +1,11 @@
 var PrintView = function(container, model){
     this.container = container;
-    container.html('<div id="printTop"><h2 class="left">My Dinner: 4 people</h2><a href="index.html" class="right"><button id="back" class="btn">Go back and edit dinner</button></a></div>');
-    container.append('<div class="printMenu"></div>');
+    container.html('<div id="printTop"><h2 class="left">My Dinner: 4 people</h2><button id="back" class="btn">Go back and edit dinner</button></div>');
+    container.append('<div class="printMenu"><table class="table" id="PrintTable"></table></div>');
     
     function printMenu(menu){
-        var table = $('<table class="table"></table>');
+
+        var table = container.find('#PrintTable');
         var length = menu.length;
         for(i=0; i < length; i++){
             var row = $('<tr></tr>');
@@ -14,10 +15,17 @@ var PrintView = function(container, model){
             table.append(row);
         }
 
-        $('.printMenu').append(table);
+        container.find('.printMenu').append(table);
     }
     
-    printMenu(model.getFullMenu());
+    this.updatePM=function(obj,arg){
+       
+        container.find('#PrintTable').empty();
+        printMenu(model.getFullMenu());
+        console.log('get full menu');
+    }
+    model.addObserver(this.updatePM); 
+    this.updatePM(container);
 }
 
 

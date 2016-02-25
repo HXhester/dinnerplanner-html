@@ -9,4 +9,10 @@ var finalController = function (view, model) {
         stateController.currentSideView.container.show();
     })
     
+    $("#printFullRecipe").click(function(){
+        stateController.finalMenu.container.hide();
+        stateController.printView.container.show();
+        stateController.printView.updatePM();
+    })
+    
 }

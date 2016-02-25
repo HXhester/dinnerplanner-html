@@ -14,26 +14,27 @@ var SideMenu =function(container, model){
     
     this.numberOfGuests.after('<div><table class="table table-hover" id="selectMenu"></table></div>');
     
+    $('#selectMenu').after('<button class="btn" id="confirm">Confirm Dinner</button>');
     
     function createMenu(menu) {
-        //var table = $('<div id="selectMenuTable"><table class="table table-hover" id="selectMenu"></table></div>');
-        var table = container.find('#selectMenu')
+        var table = container.find('#selectMenu');
         //table.append('<table class="table table-hover" id="selectMenu"></table>');
         table.append('<th>dish</th><th>cost</th>');
         var length = menu.length;
         for(i=0; i < length; i++){
-            var row = $('<tr class="hoverDelete"></tr>');
+            var row = $('<tr ></tr>');
             var cost = 0;
             for(j=0;j<menu[i].ingredients.length;j++){
                 cost += menu[i].ingredients[j].price;
             }
-            row.append('<td>'+menu[i].name+'</td>');
-            row.append('<td>'+cost+'<img src="images/delete.png" class="delete" id="'+menu[i].id+'" style="width:20%; float:right; display:none"></td>');
+            row.append('<td class="hoverDelete">'+menu[i].name+'</td>');
+            row.append('<td class="hoverDelete">'+cost+'</td>');
+            row.append('<td class="hoverDelete"><img src="images/delete.png" class="delete" id="'+menu[i].id+'" style="width:20%; float:right; opacity:0"></td>');
             table.append(row);
         }
         
-        container.append(table);
-        table.append('<div><button class="btn" id="confirm">Confirm Dinner</button></div>');
+        container.find('#numberOfGuest').after(table);
+        
         table.append('<div id="totalPrice">In Total:'+model.getTotalMenuPrice()+'</div>');
     
     }
