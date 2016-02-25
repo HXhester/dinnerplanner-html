@@ -68,7 +68,7 @@ var IndexView = function (container, model) {
         this.createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
         this.createSearchResults(model.getAllDishes(container.find("#dishtype").val(),container.find("#search")));
 
-        //console.log("updating dishes");
+        console.log("updating dishes");
         //console.log(container.find("#dishtype").val());
 
         

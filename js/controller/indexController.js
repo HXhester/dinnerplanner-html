@@ -4,13 +4,13 @@ var indexController = function(view, model) {
    $('#dishtype').on("change", function(){
        view.contentgrid.html("");
        console.log("changing dishtypes");
-      //model.setType(view.getSelectedType());
 //       console.log("#dishtype".val());
-        view.createSelection(model.getAllDishes(view.dishtype.val(),null));
+       //view.createSelection(model.getAllDishes(view.dishtype.val(),null));
+       view.update1();
         //model.getAllDishes(container.find("#dishtype").val(),null);
-        //stateController.changeMainView(new IndexView($("#view-index")),model);
+        //stateController.changeMainView(new IndexView($("#view-index"),model);
         
-        //stateController.currentSideView.container.show();
+        stateController.currentMainController = new indexController($("#view-index"),model);
     })
    
    $('#searchbutton').click(function(){
@@ -18,8 +18,8 @@ var indexController = function(view, model) {
     view.createSearchResults(model.getAllDishes(view.dishtype.val(),view.searchquery.val()));   
    })
    
-   $('.col-md-4').click(function() {
-     
+   $('.col-md-4').on("click",function() {
+   //$(document).on("click",'.col-md-4',function(){
        stateController.indexView.container.hide();
 //       stateController.SingleDishView.container.show();
        

@@ -12,6 +12,7 @@ var SideMenuController = function(view, model) {
         stateController.indexView.container.hide();
         stateController.finalMenu.container.show();
         stateController.currentMainView.container.hide();
+        stateController.currentSideController = new singleDishController($("#sideMenu"),model);
     })
     
     $('.hoverDelete').hover(function(){
