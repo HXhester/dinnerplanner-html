@@ -1,15 +1,13 @@
-//<<<<<<< Updated upstream
-var finalMenu = function (container, model) {
+
+var FinalMenu = function (container, model) {
 //=======
 //var FinalMenuView = function (container, model) {
-//>>>>>>> Stashed changes
-    
-    this.finalMenu = container.find("#finalMenu");
+    this.container = container;
     this.printTop = container.find("#printTop");
     
-    this.printTop.html("<h2 class='left''>My Dinner: 4 people</h2><br><a href='index.html' class='right'><button id='back' class='btn'>Go back and edit dinner</button></a>");
-    this.finalMenu.append("<div id='menugrid'></div>");
-    this.menugrid = container.find("#menugrid");
+    this.printTop.html("<h2 class='left''>My Dinner: 4 people</h2><br><button id='back' class='btn'>Go back and edit dinner</button>");
+    container.append("<div id='menugrid'></div>");
+    //this.menugrid = container.find("#menugrid");
     
     
         function printDishes(tableData) {
@@ -23,7 +21,8 @@ var finalMenu = function (container, model) {
             table.append(row);
         }
 
-        this.menugrid.append(table);
+        //this.menugrid.append(table);
+        container.find("#menugrid").append(table);
     }
     
     printDishes(model.selectedDishes);

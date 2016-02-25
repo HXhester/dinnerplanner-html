@@ -69,14 +69,18 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added. (getSelectedDishes work here)
 
 	this.addDishToMenu = function(id) {
-		for (i in this.selectedDishes) {
-            if(this.selectedDishes[i].type === this.getDish(id).type) {
-                this.removeDishFromMenu(this.selectedDishes[i]);
-            } 
-        }
+		
         //TODO Lab 2 
+        for (i in this.selectedDishes) {
+            if(this.selectedDishes[i].type === this.getDish(id).type) {
+                this.removeDishFromMenu(this.selectedDishes[i]); 
+            }; 
+            
+        };
         this.selectedDishes.push(this.getDish(id));
+        console.log(this.selectedDishes);
         this.notifyObservers();
+        
 	}
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {

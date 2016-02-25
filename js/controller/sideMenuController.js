@@ -2,13 +2,17 @@ var SideMenuController = function(view, model) {
  
     $('#numberOfGuests').change(function(){
         model.setNumberOfGuests(view.getNumberOfGuests());
-    });
+    })
     
     $('#confirm').click(function(){
+        console.log("final menu!!!");
         //stateController.changeMainView(new PrintView($('#print'),model),new PrintController($('#print'),model));
         //stateController.changeMainView(new finalMenu($('#finalMenu'),model),new finalMenuController($('#print'),model));
         stateController.currentSideView.container.hide();
-    });
+        stateController.indexView.container.hide();
+        stateController.finalMenu.container.show();
+        stateController.currentMainView.container.hide();
+    })
     
     $('.hoverDelete').hover(function(){
         $('.delete').css({"opacity":"1","width":"20%"});

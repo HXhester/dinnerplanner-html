@@ -7,15 +7,20 @@ var StateController = function(model) {
     this.currentMainController = new StartViewController(this.currentMainView,model);
     this.indexView = new IndexView($("#view-index"), model);
     this.indexController = new indexController(this.indexView, model);
-    this.SingleDishView = new SingleDish($("#singleDish"), model);
-    //this.singleDishController = new singleDishController(this.SingleDishView, model);
-    this.finalMenu = new finalMenu($("#finalMenu"), model);
+    
+//    this.singleDishView = new SingleDish($("#singleDish"), model,id);
+//    this.singleDishController = new singleDishController(this.SingleDishView, model,id);
+//    
+    this.finalMenu = new FinalMenu($("#finalMenu"), model);
     this.finalMenuController = new finalController(this.finalMenu, model);
+    
+    
     
     this.changeMainView=function (view, viewController){
         console.log("changing view");
-        this.currentMainView.container.empty();
+        //this.currentMainView.container.empty();
         this.currentMainView = view;
+        this.currentMainView.container.show();
         this.currentMainController = viewController; 
 
     }
@@ -25,6 +30,6 @@ var StateController = function(model) {
 
     this.currentSideView.container.hide();
     this.indexView.container.hide();
-    this.SingleDishView.container.hide();
-    
+    //this.singleDishView.container.hide();
+    this.finalMenu.container.hide();
 }

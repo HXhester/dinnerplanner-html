@@ -1,9 +1,5 @@
 var indexController = function(view, model) {
     
-    $('#1').on("click",function(){
-        console.log("change to single dish");
-        stateController.changeMainView(new SingleDish($("#singleDish"),model,1),new singleDishController($("#singleDish"),model,1));
-    });
     
    $('#dishtype').on("change", function(){
        view.contentgrid.html("");
@@ -25,11 +21,16 @@ var indexController = function(view, model) {
    $('.col-md-4').click(function() {
      
        stateController.indexView.container.hide();
-       stateController.SingleDishView.container.show();
+//       stateController.SingleDishView.container.show();
        
        //get ID for selected dish, call model for that dish
-       //var id = $(this).attr('id');
+       var id = $(this).attr('id');
+       console.log("change to single dish");
+       stateController.changeMainView(new SingleDish($("#singleDish"),model,id),new singleDishController($("#singleDish"),model,id));
+//       stateController.singleDishView.container.show();
+//       stateController.singleDishView.updateSD();
+//    
        //SingleDish(container, model, id);
-   })
+   });
    
 }

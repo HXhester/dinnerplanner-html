@@ -22,7 +22,7 @@ var IndexView = function (container, model) {
         var length = tableData.length;
         for(i=0; i < length; i++){
             
-            row.append('<div class="col-md-4" id="'+tableData[i].id+'">>'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</div>');
+            row.append('<div class="col-md-4" id="'+tableData[i].id+'">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</div>');
 
             table.append(row);
         }
@@ -68,10 +68,9 @@ var IndexView = function (container, model) {
         this.createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
         this.createSearchResults(model.getAllDishes(container.find("#dishtype").val(),container.find("#search")));
 
-        console.log("updating dishes");
-        console.log(container.find("#dishtype").val());
-        container.find("#table").empty();
-        createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
+        //console.log("updating dishes");
+        //console.log(container.find("#dishtype").val());
+
         
     }
     

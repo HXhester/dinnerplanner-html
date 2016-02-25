@@ -2,7 +2,7 @@
 //It's single Dish
 
 var SingleDish = function (container, model, Id) {
-	Id = 1;
+	//Id = 1;
 	
     this.container = container;
 	// Get all the relevant elements of the view (ones that show data
@@ -13,6 +13,7 @@ var SingleDish = function (container, model, Id) {
 //	this.minusButton = container.find("#minusGuest");
 //  this.fullMenu = container.find("#sideMenu");
     console.log(model.numberOfGuests);
+    console.log(Id);
     container.html('<h1>'+model.getDish(Id).name+'</h1>');
     container.append('<div><img src=/images/'+model.getDish(Id).image+'></div><p class="discription">'+model.getDish(Id).description+'</p>');
     container.append('<button id="backToSelect" class="btn">Back to select dish</button>');
@@ -33,12 +34,13 @@ var SingleDish = function (container, model, Id) {
         $('#ingTable h3').after(table);
     }
         
-
     createTable(model.getDish(Id).ingredients);
+    
     
     this.updateSD=function(obj,arg){
         console.log("update ingredient for");
-        container.find('#ingTable h3').html('Ingredients for '+model.getNumberOfGuests()+' people')
+        container.find('#ingTable h3').html('Ingredients for '+model.getNumberOfGuests()+' people');
+        
         
     }
     model.addObserver(this.updateSD); 
