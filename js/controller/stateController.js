@@ -10,8 +10,8 @@ var StateController = function(model) {
         this.currentMainView.container.empty();
         this.currentMainView = view;
         this.currentMainController = viewController; 
-        console.log(this.currentMainView);
+        //console.log(this.currentMainView);
     }
-    console.log(this.currentSideView.container);
+    //console.log(this.currentSideView.container);
     this.currentSideView.container.hide();
 }

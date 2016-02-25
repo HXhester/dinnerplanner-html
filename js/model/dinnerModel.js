@@ -4,7 +4,8 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
     this.selectedDishes = []; // an list of dishes
-    this.numberOfGuests = 0;
+    this.numberOfGuests = 1;
+    this.observers = [];
 
 	this.setNumberOfGuests = function(num,obj) {
 		//TODO Lab 2
@@ -35,8 +36,8 @@ var DinnerModel = function() {
 	this.getFullMenu = function() {
 		//TODO Lab 2
         
-        return dishes;
-        //return this.selectedDishes;
+        //return dishes;
+        return this.selectedDishes;
     }
         
 
@@ -55,7 +56,11 @@ var DinnerModel = function() {
         //TODO Lab 2
         var totalprice = 0;
         for (i in this.selectedDishes) {
-            totalprice += this.selectedDishes[i].price * this.numberOfGuests;
+            for (j in this.selectedDishes[i].ingredients){
+                
+                totalprice += this.selectedDishes[i].ingredients[j].price * this.numberOfGuests;
+                
+            }
         }
         return totalprice;
 	}
@@ -66,17 +71,19 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		for (i in this.selectedDishes) {
             if(this.selectedDishes[i].type === this.getDish(id).type) {
-                this.removeDishFromMenu(dish);
+                this.removeDishFromMenu(this.selectedDishes[i]);
             } 
         }
         //TODO Lab 2 
-        this.selectedDishes.append(id);
+        this.selectedDishes.push(this.getDish(id));
+        this.notifyObservers();
 	}
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 2
-        this.selectedDishes.remove(this.getDish(id));
-    
+        var index = this.selectedDishes.indexOf(this.getDish(id));
+        this.selectedDishes.splice(index,1);
+        this.notifyObservers();
 	}
     
 
@@ -112,7 +119,6 @@ var DinnerModel = function() {
 	}
     
 //-----------------------------------------------lab 3--------------------------------------------------
-    this.observers = [];
     
     // add new observer to the array
     this.addObserver = function (observer) {    

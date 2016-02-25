@@ -5,15 +5,13 @@ var SingleDish = function (container, model, Id) {
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 	this.container = container;
-    this.numberOfGuests = container.find("#numberOfGuests");
     
 //	this.plusButton = container.find("#plusGuest");
 //	this.minusButton = container.find("#minusGuest");
 //  this.fullMenu = container.find("#sideMenu");
-
-	this.numberOfGuests.html('<option>1</option><option>2</option><option>3</option>');
-    container.html('<h1>Meatballs</h1>');
-    container.append('<div>'+model.getDish(Id).image+'</div><p class="discription">'+model.getDish(Id).description+'</p>');
+    console.log(model.numberOfGuests);
+    container.html('<h1>'+model.getDish(Id).name+'</h1>');
+    container.append('<div><img src=/images/'+model.getDish(Id).image+'></div><p class="discription">'+model.getDish(Id).description+'</p>');
     container.append('<button id="backToSelect" class="btn">Back to select dish</button>');
     container.append('<div id="ingTable"><h3>Ingredients for '+model.getNumberOfGuests()+' people</h3><button id="addDish" class="btn">Add dish</button></div>');
     
@@ -33,7 +31,14 @@ var SingleDish = function (container, model, Id) {
     }
         
     createTable(model.getDish(Id).ingredients);
-
+    
+    this.updateSD=function(obj,arg){
+        console.log("update ingredient for");
+        container.find('#ingTable h3').html('Ingredients for '+model.getNumberOfGuests()+' people')
+        
+    }
+    model.addObserver(this.updateSD); 
+    this.updateSD(container);
 }
  
       

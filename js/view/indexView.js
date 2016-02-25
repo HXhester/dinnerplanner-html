@@ -14,9 +14,9 @@ var IndexView = function (container, model) {
     
     //TODO SOFIE UPDATE SELECTION BASED ON DISHTYPE
     
-    
-    this.createSelection = function(tableData) {
-        var table = $('<div id="table"></div>');
+    this.dishtype.after('<div id="table"></div>');
+    function createSelection(tableData) {
+        var table = container.find('#table');
         var row = $('<div id="row"></div>');
         var length = tableData.length;
         
@@ -40,15 +40,14 @@ var IndexView = function (container, model) {
     //this.createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
     //console.log(model.getAllDishes(container.find("#dishtype").val(),null));
 
-    this.getSelectedType = function(){
-        console.log(this.dishtype.find('option:selected').val());
-        return this.dishtype.find('option:selected').val();
-    }
     
     this.update1 = function(obj,arg){
         // change dishes based on combobox #dishtype, change view with model
-        this.createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
         console.log("updating dishes");
+        console.log(container.find("#dishtype").val());
+        container.find("#table").empty();
+        createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
+        
     }
     
     model.addObserver(this.update1); 

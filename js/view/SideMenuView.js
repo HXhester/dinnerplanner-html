@@ -22,19 +22,19 @@ var SideMenu =function(container, model){
         table.append('<th>dish</th><th>cost</th>');
         var length = menu.length;
         for(i=0; i < length; i++){
-            var row = $('<tr></tr>');
+            var row = $('<tr class="hoverDelete"></tr>');
             var cost = 0;
             for(j=0;j<menu[i].ingredients.length;j++){
                 cost += menu[i].ingredients[j].price;
             }
             row.append('<td>'+menu[i].name+'</td>');
-            row.append('<td>'+cost+'</td>');
+            row.append('<td>'+cost+'<img src="images/delete.png" class="delete" id="'+menu[i].id+'" style="width:20%; float:right; display:none"></td>');
             table.append(row);
         }
         
         container.append(table);
-        table.append('<div><a href="print.html"><button class="btn">Confirm Dinner</button></a></div>');
-        table.append('<div id="totalPrice">In Total:'+container.find('option:selected').val()+'</div>');
+        table.append('<div><button class="btn" id="confirm">Confirm Dinner</button></div>');
+        table.append('<div id="totalPrice">In Total:'+model.getTotalMenuPrice()+'</div>');
     
     }
     

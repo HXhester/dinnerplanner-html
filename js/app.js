@@ -1,4 +1,4 @@
-var model,StateController;
+var model,stateController;
 $(function() {
     //lab3
 	//We instantiate our model
