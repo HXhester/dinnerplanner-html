@@ -1,6 +1,6 @@
 var PrintView = function(container, model){
     this.container = container;
-    container.html('<div id="printTop"><h2 class="left">My Dinner: 4 people</h2><button id="back" class="btn">Go back and edit dinner</button></div>');
+    container.html('<div id="printTop"><h2 class="printheader">My Dinner: '+model.getNumberOfGuests()+ 'people</h2><button id="back" class="btn">Go back and edit dinner</button></div>');
     container.append('<div class="printMenu"><table class="table" id="PrintTable"></table></div>');
     
     function printMenu(menu){
@@ -23,6 +23,7 @@ var PrintView = function(container, model){
         container.find('#PrintTable').empty();
         printMenu(model.getFullMenu());
         console.log('get full menu');
+        container.find(".printheader").html("My dinner: "+model.getNumberOfGuests()+" people");
     }
     model.addObserver(this.updatePM); 
     this.updatePM(container);

@@ -231,18 +231,25 @@ th {
 /*FINAL MENU*/
 
 #back {
-    margin-top: 30px;
-    margin-bottom: 40px;  
-    margin-left: 5px;
+    margin-right: 15px;
     float: right;
+    margin-bottom: 15px;
 }
 
-#menugrid {
-    width: 100%;
-    
+#finalrow .col-md-4 {
+    margin-top: 30px;
+    width: 300px;
+    float: left;
+}
+
+#printTop h2 {
+    width: 50%;
 }
 
 #printFullRecipe {
+    position: fixed;
+    top: 350px;
+    left: 10px;
     float: left;
     margin-top: 30px;
     margin-bottom: 40px;  

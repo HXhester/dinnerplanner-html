@@ -8,5 +8,6 @@ var singleDishController = function(view, model,Id){
         console.log("back to select");
         stateController.indexView.container.show();
         view.empty();
+        stateController.indexView.update1();
     })
 }

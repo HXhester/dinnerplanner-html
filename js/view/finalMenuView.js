@@ -5,7 +5,7 @@ var FinalMenu = function (container, model) {
     this.container = container;
     this.printTop = container.find("#printTop");
     
-    this.printTop.html("<h2 class='left'>My Dinner: 4 people</h2><button id='back' class='btn'>Go back and edit dinner</button>");
+    this.printTop.html("<h2 class='printheader'>My Dinner: "+model.getNumberOfGuests()+ "  people</h2><button id='back' class='btn'>Go back and edit dinner</button>");
     container.append("<div id='menugrid'></div>");
     //this.menugrid = container.find("#menugrid");
     
@@ -16,7 +16,7 @@ var FinalMenu = function (container, model) {
         var length = tableData.length;
         for(i=0; i < length; i++){
             
-            row.append('<div class="col-md-4">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</div>');
+            row.append('<div class="col-md-4">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'"><br>'+tableData[i].name+'</div>');
 
             table.append(row);
         }
@@ -31,6 +31,7 @@ var FinalMenu = function (container, model) {
        
         container.find('#menugrid').empty();
         printDishes(model.getFullMenu());
+        container.find(".printheader").html("My dinner: "+model.getNumberOfGuests()+" people");
         
     }
     model.addObserver(this.updateFM); 
