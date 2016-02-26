@@ -34,14 +34,11 @@ var SingleDish = function (container, model, Id) {
 
         $('#ingTable h3').after(table);
     }
-        
     createTable(model.getDish(Id).ingredients);
     
-    
     this.updateSD=function(obj,arg){
-        console.log("update ingredient for");
-        container.find('#ingTable h3').html('Ingredients for '+model.getNumberOfGuests()+' people');
         
+        container.find('#ingTable h3').html('Ingredients for '+model.getNumberOfGuests()+' people');
         
     }
     model.addObserver(this.updateSD); 

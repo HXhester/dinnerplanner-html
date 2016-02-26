@@ -2,6 +2,8 @@ var SideMenuController = function(view, model) {
  
     $('#numberOfGuests').change(function(){
         model.setNumberOfGuests(view.getNumberOfGuests());
+        stateController.currentMainView.updateSD();
+        stateController.currentMainController = new indexController(stateController.indexView,model);
     })
     
     $('#confirm').click(function(){
@@ -17,23 +19,18 @@ var SideMenuController = function(view, model) {
         stateController.finalMenu.container.show();
         //stateController.currentSideController = new singleDishController($("#sideMenu"),model);
     })
-//    
-//    $('.hoverDelete').hover(function(){
+    
+//    $(".hoverDelete").hover(function(){
 //        console.log("hover");
-//        $('.delete').css({"opacity":"1","width":"20%"});
-//    },function(){
-//        $('.delete').css("opacity","0");
-//    })
+//    $(this).css("background-color", "yellow");
+//    }, function(){
+//    $(this).css("background-color", "pink");
+//});
     
-    $(".hoverDelete").hover(function(){
-        console.log("hover");
-    $(this).css("background-color", "yellow");
-    }, function(){
-    $(this).css("background-color", "pink");
-});
-    
-    $('.delete').click(function(){
+    $('.delete').on("click",function(){
+        console.log($(this).attr('id'));
         model.removeDishFromMenu($(this).attr("id"));
+        view.update();
     })
     
 }

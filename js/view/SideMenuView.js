@@ -29,7 +29,7 @@ var SideMenu =function(container, model){
             }
             row.append('<td class="hoverDelete">'+menu[i].name+'</td>');
             row.append('<td class="hoverDelete">'+cost+'</td>');
-            row.append('<td class="hoverDelete"><img src="images/delete.png" class="delete" id="'+menu[i].id+'" style="width:20%; float:right; opacity:0"></td>');
+            row.append('<td class="hoverDelete"><div class="delete" id="'+menu[i].name+'" style="color:gray">x</div></td>');
             table.append(row);
         }
         

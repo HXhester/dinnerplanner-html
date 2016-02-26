@@ -7,10 +7,13 @@ var PrintView = function(container, model){
 
         var table = container.find('#PrintTable');
         var length = menu.length;
+        
         for(i=0; i < length; i++){
             var row = $('<tr></tr>');
             row.append('<td>'+'<img src="images/'+menu[i].image+'" style="height:120px; width:120px"> </td>');
+            //row.append('<td><h4>'+menu[i].name+'</h4><br>'+ model.getAllIngredients(menu[i].id) +'</td>');
             row.append('<td><h4>'+menu[i].name+'</h4><br>'+menu[i].description+'</td>');
+            console.log(menu[i]);
             row.append('<td>'+menu[i].description+'</td>');
             table.append(row);
         }

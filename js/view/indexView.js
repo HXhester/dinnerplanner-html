@@ -36,6 +36,7 @@ var IndexView = function (container, model) {
     //this.table = container.find("#table");
     
     function createSelection(tableData) {
+        
         var table = $('<div id="table"></div>');
         var row = $('<div id="row"></div>');
         var length = tableData.length;
@@ -57,7 +58,7 @@ var IndexView = function (container, model) {
     this.update1 = function(obj,arg){
         // change dishes based on combobox #dishtype, change view with model
         container.find("#content-grid").empty();
-        createSelection(model.getAllDishes(container.find("#dishtype").val(), container.find("#search")));
+        createSelection(model.getAllDishes(container.find("#dishtype").val(), container.find("#search").val()));
         //row above creates problems, don't know why!!
         //createSearchResults(model.getAllDishes(container.find("#dishtype").val(),container.find("#search")));
 

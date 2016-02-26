@@ -25,6 +25,7 @@ var indexController = function(view, model) {
     //view.container.find("#content-grid").html("");
        //view.createSearchResults(model.getAllDishes(view.dishtype.val(),view.searchquery.val()));  
        view.update1();
+       stateController.currentMainController = new indexController(stateController.indexView,model);
    })
    
 
@@ -37,6 +38,7 @@ var indexController = function(view, model) {
        var id = $(this).attr('id');
        console.log("change to single dish");
        stateController.changeMainView(new SingleDish($("#singleDish"),model,id),new singleDishController($("#singleDish"),model,id));
+       
 //       stateController.singleDishView.container.show();
 //       stateController.singleDishView.updateSD();
 //    
