@@ -14,17 +14,12 @@
     font-family: "Trebuchet MS", Verdana, sans-serif;
 }
 
-#start p {
-    font-size: 16pt;
-}
 /********************************************/
 
 /*INITIAL STUFF ON START PAGE*/
 
 
-#start {
-/*    background-color: rgba(250,250,255,0.8);*/
-/*    background-image: url("images/Dinner-Party.jpg");*/
+#start{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
@@ -32,15 +27,36 @@
     font-family: "Trebuchet MS", Verdana, sans-serif;
     font-size: 16px;
     padding: 3px;
-    height: 400px;
-    width: 800px;
+    height: 100%;
+    width: 100%;
     padding: 10px;
-    margin-top: -200px;
-    margin-left: -400px;
-    position: fixed;
-    top:60%;
-    left:50%;
+    position: absolute;
     text-align: center;
+}
+
+#start:after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("images/Dinner-Party.jpg"); 
+    width: 100%;
+    height: 100%;
+    opacity : 0.8;
+    z-index: -1;
+}
+
+#start p {
+    color: white;
+    margin-top: 100px;
+    font-size: 16pt;
+}
+
+#start h1 {
+    margin-top: 70px;
+    margin-bottom: 140px;
+
 }
 
 /********************************************/
@@ -53,27 +69,45 @@
     width:300px;
     float:left;
     font-size: 20px;
+    padding-left:10px;  
 }
 
-#sideMenu table{
+
+#sideMenu table {
     border-bottom: solid;
+    font-size: 16px;
 }
 
+.hoverDelete {
+    width: 20px;
+}
+
+
+#sideMenu div {
+    display: inline;
+}
 #numberOfGuests {
     width: 50px;
+    margin: 5px;
+    margin-right: 10px;
+    display: inline;
+    float: right;
 }
 
-/*POTENTIALLY REMOVE*/
-/*
-.form-group .row {
-    padding-top: 10px;
-}
-
-THIS ONE TOO
 #confirm {
-    margin-top:30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+/*    float: left;*/
+    display: block;
+
+
 }
-*/
+
+#totalPrice {
+    
+    margin: 10px;
+}
+
 
 /********************************************/
 
@@ -117,106 +151,122 @@ THIS ONE TOO
     height: 100px;
 }
 
-/*AFTER ADDING*/
+
 
 #dishtitle {
     font-style: bold;
     float: left;
 
 }
+/*
 #cost {
-    float: right;
-    border-bottom-width: thick;
-    border-bottom-color: black;
-}
+float: right;
+border-bottom-width: thick;
+border-bottom-color: black;
+}*/
+
 /********************************************/
 
-<<<<<<< Updated upstream
-/*CSS BELOW NOT NEEDED?*/
-/*
-#content {
-    padding-left: 20px;
-    margin-left: 300px;
-
-    background-position: center;
-    position: relative;
-    
-}
-*/
-=======
-
->>>>>>> Stashed changes
-
-
-/*neither is this?*/
-/*
-#exampleView{
-    font-family: sans-serif;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    color: #FFFFFF;
-}
-
-#title2{
-    color: #FFFFFF;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-size: 50px;
-    padding-bottom: 40px;
-}
-*/
-
-<<<<<<< Updated upstream
-
-
-=======
-
-
-#sideMenu {
-    line-height:30px;
-    background-color:#eeeeee;
-    width:300px;
-    float:left;
-    font-size: 20px;
-}
-
-#sideMenu table{
-    border-bottom: solid;
-}
+/*SINGLE DISH*/
 
 #singleDish {
     line-height: 20px;
     z-index: 0;
     position: absolute;
-    left: 350px;
+    left: 330px;
+    width: 75%;
+/*    -webkit-column-count: 2;*/
+     
 }
+
 
 div p.discription {
     margin-top: 20px;
-    font-size: 20px;
+    margin-bottom: 20px;
+    font-size: 14pt;
+    width: 50%;
+
+    
 }
 
+/*table needs to be adjusted to only be in right column..*/
 #ingTable {
     background-color: rgba(232, 224, 224, 0.35);
-    float:right;
+    float: right;
+    top: 120px;
+    right: 30px;
+    position:fixed;
     font-size: 20px;
     padding-left: 20px;
     padding-bottom: 20px;
+     
+
+    
 }
 
 #ingTable table {
     line-height: 50px;
     width:450px;
     z-index: 2;
-    font-size: 20px;
+    font-size: 16px;
     border-top: solid;
     border-bottom: solid;
+    
 }
 
 td {
     padding-left: 20px;
 }
 
-#confirm {
-    position: relative;
+th {
+    padding-left: 20px;
+}
+
+#backToSelect {
+    float: left;
+    position: absolute;
+
+
+}
+/*FINAL MENU*/
+
+#back {
+    margin-top: 30px;
+    margin-bottom: 40px;  
+    margin-left: 5px;
+    float: right;
+}
+
+#menugrid {
+    width: 100%;
     
 }
->>>>>>> Stashed changes
+
+#printFullRecipe {
+    float: left;
+    margin-top: 30px;
+    margin-bottom: 40px;  
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

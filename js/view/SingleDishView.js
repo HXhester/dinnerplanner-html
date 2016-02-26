@@ -12,8 +12,8 @@ var SingleDish = function (container, model, Id) {
 //	this.plusButton = container.find("#plusGuest");
 //	this.minusButton = container.find("#minusGuest");
 //  this.fullMenu = container.find("#sideMenu");
-    console.log(model.numberOfGuests);
-    console.log(Id);
+    console.log("Number of guests: "+model.numberOfGuests);
+    console.log("ID FOR THE DISH: "+Id);
     container.html('<h1>'+model.getDish(Id).name+'</h1>');
     container.append('<div><img src=/images/'+model.getDish(Id).image+'></div><p class="discription">'+model.getDish(Id).description+'</p>');
     container.append('<button id="backToSelect" class="btn">Back to select dish</button>');
@@ -21,6 +21,7 @@ var SingleDish = function (container, model, Id) {
     
     function createTable(tableData) {
         var table = $('<table class="table table-striped"></table>');
+        table.append('<th>Ingredient</th><th>Quantity</th><th>Unit</th><th>Price</th>');
         var length = tableData.length;
         for(i=0; i < length; i++){
             var row = $('<tr></tr>');

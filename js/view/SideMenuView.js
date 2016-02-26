@@ -19,7 +19,7 @@ var SideMenu =function(container, model){
     function createMenu(menu) {
         var table = container.find('#selectMenu');
         //table.append('<table class="table table-hover" id="selectMenu"></table>');
-        table.append('<th>dish</th><th>cost</th>');
+        table.append('<th>Dish</th><th>Cost</th>');
         var length = menu.length;
         for(i=0; i < length; i++){
             var row = $('<tr ></tr>');
@@ -35,7 +35,7 @@ var SideMenu =function(container, model){
         
         container.find('#numberOfGuest').after(table);
         
-        table.append('<div id="totalPrice">In Total:'+model.getTotalMenuPrice()+'</div>');
+        table.append('<br><div id="totalPrice">In Total: '+model.getTotalMenuPrice()+'</div>');
     
     }
     
@@ -43,7 +43,7 @@ var SideMenu =function(container, model){
     //createMenu(model.getFullMenu());
     this.update=function(obj,arg){
         // Calculate price of the menu
-        container.find('#totalPrice').html('In Total:'+model.getNumberOfGuests());
+        container.find('#totalPrice').html('In Total: '+model.getNumberOfGuests());
         
         // When the selected menu changes, update the table
         //container.find('#selectMenuTable').html(''); both works

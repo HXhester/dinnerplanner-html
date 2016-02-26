@@ -53,14 +53,6 @@ var IndexView = function (container, model) {
         this.contentgrid.append(table);
     }
     
-//model.getAllDishes(container.find('#search').val();
-    
-    
-  
-//calling function createSelection//
-    //this.createSelection(model.getAllDishes(container.find("#dishtype").val(),null));
-    //console.log(model.getAllDishes(container.find("#dishtype").val(),null));
-
     
     this.update1 = function(obj,arg){
         // change dishes based on combobox #dishtype, change view with model
