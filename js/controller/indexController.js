@@ -7,7 +7,7 @@ var indexController = function(view, model) {
 //       console.log("#dishtype".val());
 
        //view.createSelection(model.getAllDishes(view.dishtype.val(),null));
-       view.update1();
+       stateController.indexView.update1();
         //model.getAllDishes(container.find("#dishtype").val(),null);
 
         
@@ -24,8 +24,10 @@ var indexController = function(view, model) {
    $('#searchbutton').click(function(){
     //view.container.find("#content-grid").html("");
        //view.createSearchResults(model.getAllDishes(view.dishtype.val(),view.searchquery.val()));  
+
        view.update1();
        stateController.currentMainController = new indexController(stateController.indexView,model);
+
    })
    
 
