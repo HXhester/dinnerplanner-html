@@ -76,13 +76,15 @@ var DinnerModel = function() {
         var index = this.selectedDishes.indexOf(this.getDish(id));
         //TODO Lab 2 
         for (i=0; i<length;i++) {
+            console.log(this.selectedDishes[i].type);
+            console.log(this.getDish(id).type);
             if(this.selectedDishes[i].type === this.getDish(id).type) {
             this.selectedDishes.splice(index,1);
             }; 
             
         };
         this.selectedDishes.push(this.getDish(id));
-        console.log(this.selectedDishes);
+       // console.log(this.selectedDishes);
         this.notifyObservers();
         
 	}

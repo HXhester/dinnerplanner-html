@@ -3,7 +3,7 @@ var indexController = function(view, model) {
     
    $('#dishtype').on("change", function(){
        //view.container.find("#content-grid").html("");
-       console.log("changing dishtypes");
+       //console.log("changing dishtypes");
 //       console.log("#dishtype".val());
 
        //view.createSelection(model.getAllDishes(view.dishtype.val(),null));
@@ -32,13 +32,13 @@ var indexController = function(view, model) {
    
 
    $('.col-md-4').on("click", function() {
-        console.log("CLICKED");
+        //console.log("CLICKED");
        stateController.indexView.container.hide();
 //       stateController.SingleDishView.container.show();
        
        //get ID for selected dish, call model for that dish
        var id = $(this).attr('id');
-       console.log("change to single dish");
+       //console.log("change to single dish");
        stateController.changeMainView(new SingleDish($("#singleDish"),model,id),new singleDishController($("#singleDish"),model,id));
        
 //       stateController.singleDishView.container.show();

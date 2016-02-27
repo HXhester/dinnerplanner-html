@@ -1,6 +1,6 @@
 var PrintView = function(container, model){
     this.container = container;
-    container.html('<div id="printTop"><h2 class="printheader">My Dinner: '+model.getNumberOfGuests()+ 'people</h2><button id="back" class="btn">Go back and edit dinner</button></div>');
+    container.html('<div class="row"><div class="col-md-6" id="printTop"><h2 class="printheader">My Dinner: '+model.getNumberOfGuests()+ 'people</h2></div><div class="col-md-6"><button class="back btn">Go back and edit dinner</button></div></div>');
     container.append('<div class="printMenu"><table class="table" id="PrintTable"></table></div>');
     
     function printMenu(menu){

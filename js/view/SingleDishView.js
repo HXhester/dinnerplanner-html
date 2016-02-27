@@ -12,16 +12,17 @@ var SingleDish = function (container, model, Id) {
 //	this.plusButton = container.find("#plusGuest");
 //	this.minusButton = container.find("#minusGuest");
 //  this.fullMenu = container.find("#sideMenu");
-    console.log("Number of guests: "+model.numberOfGuests);
-    console.log("ID FOR THE DISH: "+Id);
-    container.html('<h1>'+model.getDish(Id).name+'</h1>');
-    container.append('<div><img src=/images/'+model.getDish(Id).image+'></div><p class="discription">'+model.getDish(Id).description+'</p>');
-    container.append('<button id="backToSelect" class="btn">Back to select dish</button>');
-    container.append('<div id="ingTable"><h3>Ingredients for '+model.getNumberOfGuests()+' people</h3><button id="addDish" class="btn">Add dish</button></div>');
+   // console.log("Number of guests: "+model.numberOfGuests);
+    //console.log("ID FOR THE DISH: "+Id);
+    
+    container.html('<div class="row"><div class="col-md-4" id="dishcontent"><h1>'+model.getDish(Id).name+'</h1></div></div>');
+    container.find("#dishcontent").append('<div><img src=/images/'+model.getDish(Id).image+'></div><p class="discription">'+model.getDish(Id).description+'</p>');
+    container.find("#dishcontent").append('<button id="backToSelect" class="btn">Back to select dish</button>');
+    container.find("#dishcontent").after('<div class="col-md-4" id="ingTable"><h3>Ingredients for '+model.getNumberOfGuests()+' people</h3><button id="addDish" class="btn">Add dish</button></div>');
     
     function createTable(tableData) {
-        var table = $('<table class="table table-striped"></table>');
-        table.append('<th>Ingredient</th><th>Quantity</th><th>Unit</th><th>Price</th>');
+        var table = $('<table class="container-fluid"></table>');
+        table.append('<tr><th>Ingredient</th><th>Quantity</th><th>Unit</th><th>Price</th></tr>');
         var length = tableData.length;
         for(i=0; i < length; i++){
             var row = $('<tr></tr>');

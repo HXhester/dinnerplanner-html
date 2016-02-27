@@ -5,7 +5,7 @@ var singleDishController = function(view, model,Id){
     });
     
     $("#backToSelect").click(function(){
-        console.log("back to select");
+       // console.log("back to select");
         stateController.indexView.container.show();
         view.empty();
         stateController.indexView.update1();

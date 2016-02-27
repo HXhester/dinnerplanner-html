@@ -1,5 +1,6 @@
 var StateController = function(model) {
     
+    
     //views initiated from the beginning
     this.currentSideView = new SideMenu($("#sideMenu"),model);
     this.currentSideController = new SideMenuController(this.currentSideView,model);
