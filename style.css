@@ -134,6 +134,7 @@
     margin-right: 20px;
     padding-right: 20px;
     margin-top: 20px;
+    display: inline-block;
 /*    height: inherit;*/
 }
 
@@ -172,7 +173,7 @@ border-bottom-color: black;
 #singleDish {
     line-height: 20px;
     z-index: 0;
-    position: absolute;
+/*    position: absolute;*/
     left: 330px;
     width: 75%;
 /*    -webkit-column-count: 2;*/
@@ -195,7 +196,7 @@ div p.discription {
     float: right;
     top: 120px;
     right: 30px;
-    position:fixed;
+/*    position:fixed;*/
     font-size: 20px;
     padding-left: 20px;
     padding-bottom: 20px;

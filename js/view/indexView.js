@@ -1,7 +1,7 @@
 var IndexView = function (container, model) {
     
     this.container = container;
-    container.html('<div id="navigation"></div><div id="content-grid"></div>');
+    container.html('<div id="navigation"></div><div id="content-grid" class="table-responsive"></div></div>');
     this.navigation = container.find("#navigation");
     //this.contentgrid = container.find("#content-grid");
 
@@ -38,7 +38,7 @@ var IndexView = function (container, model) {
     function createSelection(tableData) {
         
         var table = $('<div id="table"></div>');
-        var row = $('<div id="row"></div>');
+        var row = $('<div id="row" class="container-fluid"></div>');
         var length = tableData.length;
         
         for(i=0; i < length; i++){

@@ -7,6 +7,7 @@ var finalController = function (view, model) {
         stateController.finalMenu.container.hide();
         stateController.indexView.container.show();
         stateController.currentSideView.container.show();
+        stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
     })
     
     $("#printFullRecipe").click(function(){

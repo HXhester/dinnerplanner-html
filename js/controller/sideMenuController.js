@@ -2,8 +2,8 @@ var SideMenuController = function(view, model) {
  
     $('#numberOfGuests').change(function(){
         model.setNumberOfGuests(view.getNumberOfGuests());
-        stateController.currentMainView.updateSD();
         stateController.currentMainController = new indexController(stateController.indexView,model);
+        stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
     })
     
     $('#confirm').click(function(){
@@ -28,9 +28,11 @@ var SideMenuController = function(view, model) {
 //});
     
     $('.delete').on("click",function(){
-        console.log($(this).attr('id'));
-        model.removeDishFromMenu($(this).attr("id"));
+        
+        console.log($(this).attr("id"));
+        model.removeDishFromMenu(model.getDishWithName($(this).attr("id")));
         view.update();
+        stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
     })
     
 }

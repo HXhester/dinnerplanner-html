@@ -74,16 +74,26 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		var length = this.selectedDishes.length;
         var index = this.selectedDishes.indexOf(this.getDish(id));
+        var SeDishes = this.selectedDishes;
         //TODO Lab 2 
         for (i=0; i<length;i++) {
-            if(this.selectedDishes[i].type === this.getDish(id).type) {
-            this.selectedDishes.splice(index,1);
+            if(SeDishes[i].type === this.getDish(id).type) {
+                SeDishes.splice(index,1);
             }; 
             
         };
-        this.selectedDishes.push(this.getDish(id));
-        console.log(this.selectedDishes);
+        SeDishes.push(this.getDish(id));
+        this.selectedDishes = SeDishes;
         this.notifyObservers();
+//        for (i=0; i<length;i++) {
+//            if(this.selectedDishes[i].type === this.getDish(id).type) {
+//            this.selectedDishes.splice(index,1);
+//            }; 
+//            
+//        };
+//        this.selectedDishes.push(this.getDish(id));
+//        console.log(this.selectedDishes);
+//        this.notifyObservers();
         
 	}
 	//Removes dish from menu
@@ -128,7 +138,9 @@ var DinnerModel = function() {
     
     this.getDishWithName = function(name){
         for(key in this.selectedDishes){
-            
+            if(this.selectedDishes[key].name == name){
+                return this.selectedDishes[key].id;
+            }
         }
     }
     

@@ -13,7 +13,6 @@ var PrintView = function(container, model){
             row.append('<td>'+'<img src="images/'+menu[i].image+'" style="height:120px; width:120px"> </td>');
             //row.append('<td><h4>'+menu[i].name+'</h4><br>'+ model.getAllIngredients(menu[i].id) +'</td>');
             row.append('<td><h4>'+menu[i].name+'</h4><br>'+menu[i].description+'</td>');
-            console.log(menu[i]);
             row.append('<td>'+menu[i].description+'</td>');
             table.append(row);
         }

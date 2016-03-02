@@ -7,7 +7,7 @@ var indexController = function(view, model) {
 //       console.log("#dishtype".val());
 
        //view.createSelection(model.getAllDishes(view.dishtype.val(),null));
-       view.update1();
+        stateController.indexView.update1();
         //model.getAllDishes(container.find("#dishtype").val(),null);
 
         
@@ -24,13 +24,12 @@ var indexController = function(view, model) {
    $('#searchbutton').click(function(){
     //view.container.find("#content-grid").html("");
        //view.createSearchResults(model.getAllDishes(view.dishtype.val(),view.searchquery.val()));  
-       view.update1();
+       stateController.indexView.update1();
        stateController.currentMainController = new indexController(stateController.indexView,model);
    })
    
 
    $('.col-md-4').on("click", function() {
-        console.log("CLICKED");
        stateController.indexView.container.hide();
 //       stateController.SingleDishView.container.show();
        
@@ -38,7 +37,7 @@ var indexController = function(view, model) {
        var id = $(this).attr('id');
        console.log("change to single dish");
        stateController.changeMainView(new SingleDish($("#singleDish"),model,id),new singleDishController($("#singleDish"),model,id));
-       
+       stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
 //       stateController.singleDishView.container.show();
 //       stateController.singleDishView.updateSD();
 //    
