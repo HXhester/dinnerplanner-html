@@ -84,6 +84,7 @@ var DinnerModel = function() {
         };
         SeDishes.push(this.getDish(id));
         this.selectedDishes = SeDishes;
+
         this.notifyObservers();
 //        for (i=0; i<length;i++) {
 //            if(this.selectedDishes[i].type === this.getDish(id).type) {

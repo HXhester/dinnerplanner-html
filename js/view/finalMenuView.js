@@ -3,16 +3,17 @@ var FinalMenu = function (container, model) {
 //=======
 //var FinalMenuView = function (container, model) {
     this.container = container;
+    container.html("<div class='row'><div id='printTop' class='container-fluid'></div></div>");
     this.printTop = container.find("#printTop");
     
-    this.printTop.html("<h2 class='printheader'>My Dinner: "+model.getNumberOfGuests()+ "  people</h2><button id='back' class='btn'>Go back and edit dinner</button>");
+    this.printTop.html("<div class='row'><div class='col-md-6'><h2 class='printheader'>My Dinner: "+model.getNumberOfGuests()+ "  people</h2></div><div class='col-md-6'><button class='back btn'>Go back and edit dinner</button></div></div>");
     container.append("<div id='menugrid'></div>");
     //this.menugrid = container.find("#menugrid");
     
     
     function printDishes(tableData) {
         var table = $('<div id="finaltable"></div>');
-        var row = $('<div id="finalrow"></div>');
+        var row = $('<div id="finalrow" class="row"></div>');
         var length = tableData.length;
         for(i=0; i < length; i++){
             
@@ -25,7 +26,7 @@ var FinalMenu = function (container, model) {
         container.find("#menugrid").append(table);
     }
     
-    container.find('#menugrid').after('<br><button class="btn" id="printFullRecipe">Print Full Recipe</button>');
+    container.find('#menugrid').after('<br><div class="row"><button class="btn" id="printFullRecipe">Print Full Recipe</button></div>');
     
     this.updateFM=function(obj,arg){
        

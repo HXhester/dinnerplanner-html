@@ -3,11 +3,12 @@ var indexController = function(view, model) {
     
    $('#dishtype').on("change", function(){
        //view.container.find("#content-grid").html("");
-       console.log("changing dishtypes");
+       //console.log("changing dishtypes");
 //       console.log("#dishtype".val());
 
        //view.createSelection(model.getAllDishes(view.dishtype.val(),null));
         stateController.indexView.update1();
+
         //model.getAllDishes(container.find("#dishtype").val(),null);
 
         
@@ -25,7 +26,9 @@ var indexController = function(view, model) {
     //view.container.find("#content-grid").html("");
        //view.createSearchResults(model.getAllDishes(view.dishtype.val(),view.searchquery.val()));  
        stateController.indexView.update1();
+
        stateController.currentMainController = new indexController(stateController.indexView,model);
+
    })
    
 
@@ -35,7 +38,7 @@ var indexController = function(view, model) {
        
        //get ID for selected dish, call model for that dish
        var id = $(this).attr('id');
-       console.log("change to single dish");
+       //console.log("change to single dish");
        stateController.changeMainView(new SingleDish($("#singleDish"),model,id),new singleDishController($("#singleDish"),model,id));
        stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
 //       stateController.singleDishView.container.show();
