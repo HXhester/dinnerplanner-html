@@ -1,4 +1,3 @@
-var SeletedID;
 var IndexView = function (container, model) {
     
     this.container = container;
@@ -43,11 +42,10 @@ var IndexView = function (container, model) {
         var length = tableData.length;
         
         for(i=0; i < length; i++){
-            console.log(tableData[i].Title);
+            //  console.log(tableData[i].Title);
             
-            row.append('<div class="col-md-4" id="'+tableData[i].recipeId+'">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="'+tableData[i].ImageURL+'">'+tableData[i].Title+'</div>');
-
-
+            row.append('<div class="col-md-4" id="'+tableData[i].RecipeID+'">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="'+tableData[i].ImageURL+'">'+tableData[i].Title+'</div>');
+            
             table.append(row);
         }
 
@@ -55,18 +53,21 @@ var IndexView = function (container, model) {
         container.find("#content-grid").append(table);
     }
     
-    
+    //the obj comes from model
     this.update1 = function(obj){
         console.log("Notified!", obj);
         // change dishes based on combobox #dishtype, change view with model
-        this.container.find("#content-grid").empty();
-        //createSelection(model.getAllDishes(container.find("#dishtype").val(), container.find("#search").val()));
-        if(obj == "dataAvailable") {
-            this.container.find("#content-grid").html("WOW");    
+        
+        if(obj === "dishesAvailable") {
+            //this.container.find("#content-grid").html("WOW");  
+            container.find("#content-grid").empty();
+            createSelection(model.dishes);
+            
         }
     }
     
-    model.addObserver(this.update1); 
+    model.addObserver(this.update1);
+    model.getAllDishes("starter","");
     //model.getAllDishes("", "");
     //this.update1();
 

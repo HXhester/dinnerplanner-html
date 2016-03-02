@@ -1,10 +1,10 @@
 //ExampleView Object constructor
 //It's single Dish
 
-var SingleDish = function (container, model, Id) {
-	console.log(Id);
+var SingleDish = function (container, model) {
 	
     this.container = container;
+    
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 
@@ -15,8 +15,12 @@ var SingleDish = function (container, model, Id) {
    // console.log("Number of guests: "+model.numberOfGuests);
     //console.log("ID FOR THE DISH: "+Id);
     
-    container.html('<div class="row"><div class="col-md-4" id="dishcontent"><h1>'+model.getDish(Id).Title+'</h1></div></div>');
-    container.find("#dishcontent").append('<div><img src="'+model.getDish(Id).ImageURL+'"></div><p class="discription">'+model.getDish(Id).Description+'</p>');
+//    container.html('<div class="row"><div class="col-md-4" id="dishcontent"><h1>'+model.getDish(Id).Title+'</h1></div></div>');
+//    container.find("#dishcontent").append('<div><img src="'+model.getDish(Id).ImageURL+'"></div><p class="discription">'+model.getDish(Id).Description+'</p>');
+    
+    container.html('<div class="row"><div class="col-md-4" id="dishcontent"><h1>'+model.singleDish.Title+'</h1></div></div>');
+    container.find("#dishcontent").append('<div><img src="'+model.singleDish.ImageURL+'"></div><p class="discription">'+model.singleDish.Description+'</p>');
+    
     container.find("#dishcontent").append('<button id="backToSelect" class="btn">Back to select dish</button>');
     container.find("#dishcontent").after('<div class="col-md-4" id="ingTable"><h3>Ingredients for '+model.getNumberOfGuests()+' people</h3><div id="ingredientTable"></div><button id="addDish" class="btn">Add dish</button></div>');
     
@@ -27,10 +31,10 @@ var SingleDish = function (container, model, Id) {
         var length = tableData.length;
         for(i=0; i < length; i++){
             var row = $('<tr></tr>');
-            row.append('<td>'+tableData[i].name+'</td>');
-            row.append('<td>'+tableData[i].quantity*model.getNumberOfGuests()+'</td>');
-            row.append('<td>'+tableData[i].unit+'</td>');
-            row.append('<td>'+tableData[i].price*model.getNumberOfGuests()+'</td>');
+            row.append('<td>'+tableData[i].IngredientInfo.Name+'</td>');
+            row.append('<td>'+tableData[i].Quantity*model.getNumberOfGuests()+'</td>');
+            row.append('<td>'+tableData[i].Unit+'</td>');
+            row.append('<td>'+tableData[i].Unit*model.getNumberOfGuests()+'</td>');
 
             table.append(row);
         }
@@ -38,12 +42,14 @@ var SingleDish = function (container, model, Id) {
         $('#ingredientTable').append(table);
     }
     
+    createTable(model.singleDish.Ingredients);
     this.updateSD=function(obj){
-        
-        container.find('#ingTable h3').html('Ingredients for '+model.getNumberOfGuests()+' people');
-        container.find('#ingredientTable').empty();
-        createTable(model.getDish(Id).ingredients);
-        
+        if(obj==="changeNumOfGuests"){
+            container.find('#ingTable h3').html('Ingredients for '+model.getNumberOfGuests()+' people');
+            container.find('#ingredientTable').empty();
+            //createTable(model.getDish(Id).ingredients);
+            createTable(model.singleDish.Ingredients);
+        }
     }
     model.addObserver(this.updateSD); 
     this.updateSD(container);

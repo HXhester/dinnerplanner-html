@@ -28,12 +28,12 @@ var FinalMenu = function (container, model) {
     
     container.find('#menugrid').after('<br><div class="row"><button class="btn" id="printFullRecipe">Print Full Recipe</button></div>');
     
-    this.updateFM=function(obj,arg){
-       
-        container.find('#menugrid').empty();
-        printDishes(model.getFullMenu());
-        container.find(".printheader").html("My dinner: "+model.getNumberOfGuests()+" people");
-        
+    this.updateFM=function(obj){
+       if(obj==="removeDish"||obj==="addDish"){
+            container.find('#menugrid').empty();
+            printDishes(model.getFullMenu());
+            container.find(".printheader").html("My dinner: "+model.getNumberOfGuests()+" people");
+       }
     }
     model.addObserver(this.updateFM); 
     this.updateFM(container);

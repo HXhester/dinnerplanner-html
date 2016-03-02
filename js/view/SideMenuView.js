@@ -40,16 +40,19 @@ var SideMenu =function(container, model){
     }
     
     
-    //createMenu(model.getFullMenu());
+    createMenu(model.getFullMenu());
     this.update=function(obj){
         // Calculate price of the menu
-        
-        container.find('#totalPrice').html('In Total: '+model.getNumberOfGuests());
+        if(obj==="changeNumOfGuests"){
+            container.find('#totalPrice').html('In Total: '+model.getNumberOfGuests());
+        }
         // When the selected menu changes, update the table
         //container.find('#selectMenuTable').html(''); both works
-        container.find('#selectMenu').empty();
-        createMenu(model.getFullMenu());
-        
+
+        if(obj==="removeDish"||obj==="addDish"){
+            container.find('#selectMenu').empty();
+            createMenu(model.getFullMenu());
+        }
     }
     model.addObserver(this.update); 
     this.update(container);

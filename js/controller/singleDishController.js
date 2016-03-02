@@ -1,7 +1,7 @@
 var singleDishController = function(view, model,Id){
     
     $("#addDish").click(function(){
-        model.addDishToMenu(Id,view.container);
+        model.addDishToMenu(Id);
         stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
     });
     

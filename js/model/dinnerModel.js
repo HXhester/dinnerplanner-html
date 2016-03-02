@@ -4,38 +4,16 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
     this.selectedDishes = []; // an list of dishes
+    this.singleDish;
     this.numberOfGuests = 1;
     this.observers = [];
-    
     this.dishes = [];
-
     
-    
-    
-//    var syncRequest = function () {
-//        $.ajax({
-//            type: 'GET',
-//            // You need to get your API key from api.BigOven.com
-//            url: 'http://api.bigoven.com/recipes?pg=1&rpp=11&api_key=1hg3g4Dkwr6pSt22n00EfS01rz568IR6',
-//            dataType: 'json',
-//            success: function(data){
-//              //  console.log(data);
-//                    
-//            },
-//            error: function(xhr,status,error) {
-//                console.error(error);
-//            }
-//        })
-//    }
-    
-//        syncRequest();
-    
-    
-	this.setNumberOfGuests = function(num,obj) {
+	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
         this.numberOfGuests = num;
         //console.log(this);
-        this.notifyObservers(obj);
+        this.notifyObservers("changeNumOfGuests");
     
 	}
 
@@ -95,7 +73,7 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added. (getSelectedDishes work here)
 
-	this.addDishToMenu = function(id,obj) {
+	this.addDishToMenu = function(id) {
 		var length = this.selectedDishes.length;
         var index = this.selectedDishes.indexOf(this.getDish(id));
         var SeDishes = this.selectedDishes;
@@ -112,7 +90,7 @@ var DinnerModel = function() {
         SeDishes.push(this.getDish(id));
         this.selectedDishes = SeDishes;
 
-        this.notifyObservers(obj);
+        this.notifyObservers("addDish");
 //        for (i=0; i<length;i++) {
 //            if(this.selectedDishes[i].type === this.getDish(id).type) {
 //            this.selectedDishes.splice(index,1);
@@ -129,7 +107,7 @@ var DinnerModel = function() {
 		//TODO Lab 2
         var index = this.selectedDishes.indexOf(this.getDish(id));
         this.selectedDishes.splice(index,1);
-        this.notifyObservers();
+        this.notifyObservers("removeDish");
 	}
     
 
@@ -139,47 +117,40 @@ var DinnerModel = function() {
     
     var self = this;
 	this.getAllDishes = function (type,filter) {
-
         var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
         var titleKeyword = filter;
         var titleKeyword2 = type;
-        var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + titleKeyword + "&api_key=" + apiKey;
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + titleKeyword + "&title_kw=" + titleKeyword2 + "&api_key=" + apiKey;
         
         $.ajax({
             type: "GET",
             dataType: 'json',
             cache: false,
             url: url,
+//TODO:when the data is loading, create a gif in indexview with id="loading"----//
+//            beforeSend:function(){
+//            // show gif here, eg:
+//                $("#loading").show();
+//            },
+//            complete:function(){
+//            // hide gif here, eg:
+//                $("#loading").hide();
+//            },
+//-------------------------------------------------------------------------------//
             success: function (data) {
-                alert('success');
-                console.log(data);
+                //alert('success');
                 self.dishes = data.Results;
+                //as a sign that data reading is finished,
                 self.notifyObservers("dishesAvailable");
-                
-            }
+            },
+//TODO: When internet is now working----------------------------------------------//
+//            error: function(){
+//                alert('Internet disconnected!');
+//            }
         });
         //console.log(OvenDish);
         //return OvenDish;
-    }
-        
-        
-//	  return $(dishes).filter(function(index,dish) {
-//		var found = true;
-//		if(filter){
-//			found = false;
-//			$.each(dish.ingredients,function(index,ingredient) {
-//				if(ingredient.name.indexOf(filter)!=-1) {
-//					found = true;
-//				}
-//			});
-//			if(dish.name.indexOf(filter) != -1)
-//			{
-//				found = true;
-//			}
-//		}
-//	  	return dish.type == type && found;
-//	  });	
-	
+    }	
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
@@ -195,8 +166,7 @@ var DinnerModel = function() {
             url: url,
             success: function (data) {
                 alert('success');
-                model.notifyObservers();
-                //console.log(data);
+                self.singleDish = data.Results;
             }
         });
        }
@@ -241,7 +211,7 @@ var DinnerModel = function() {
 	// defining the unit i.e. "g", "slices", "ml". Unit
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-	var OvenDish= [];
+
     var dishes = [{
 		'id':1,
 		'name':'French toast',
