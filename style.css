@@ -141,7 +141,6 @@
     margin-right: 20px;
     padding-right: 20px;
     margin-top: 20px;
-    display: inline-block;
 /*    height: inherit;*/
 }
 
@@ -183,17 +182,12 @@ border-bottom-color: black;
 /*    display: inline-block;*/
     line-height: 20px;
     z-index: 0;
-<<<<<<< HEAD
-/*    position: absolute;*/
-    left: 330px;
-    width: 75%;
-=======
 
 /*    position: absolute;*/
 /*    left: 330px;*/
 /*    width: 75%;*/
 /*    margin-left: 320px;*/
->>>>>>> origin/Lab3
+
 /*    -webkit-column-count: 2;*/
      
 }
@@ -215,13 +209,6 @@ div p.discription {
     background-color: rgba(232, 224, 224, 0.35);
     float: right;
     margin-right: 10px;
-/*
-    top: 120px;
-    right: 30px;
-<<<<<<< HEAD
-=======
-*/
->>>>>>> origin/Lab3
 /*    position:fixed;*/
     font-size: 20px;
     width: inherit;

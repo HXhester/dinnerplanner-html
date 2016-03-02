@@ -2,7 +2,7 @@
 //It's single Dish
 
 var SingleDish = function (container, model, Id) {
-	//Id = 1;
+	console.log(Id);
 	
     this.container = container;
 	// Get all the relevant elements of the view (ones that show data

@@ -38,7 +38,7 @@ var indexController = function(view, model) {
        
        //get ID for selected dish, call model for that dish
        var id = $(this).attr('id');
-       //console.log("change to single dish");
+       console.log(id);
        stateController.changeMainView(new SingleDish($("#singleDish"),model,id),new singleDishController($("#singleDish"),model,id));
        stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
 //       stateController.singleDishView.container.show();

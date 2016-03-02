@@ -1,11 +1,8 @@
+var SeletedID;
 var IndexView = function (container, model) {
     
     this.container = container;
-<<<<<<< HEAD
-    container.html('<div id="navigation"></div><div id="content-grid" class="table-responsive"></div></div>');
-=======
     container.html('<div id="navigation" class="row"></div><div id="content-grid"></div>');
->>>>>>> origin/Lab3
     this.navigation = container.find("#navigation");
     //this.contentgrid = container.find("#content-grid");
 

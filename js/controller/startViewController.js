@@ -8,5 +8,6 @@ var StartViewController = function(view, model) {
         stateController.indexView.container.show();
         stateController.currentMainView.container.hide();
         stateController.currentSideView.container.show();
+        //stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
     })
 }

@@ -11,5 +11,6 @@ var singleDishController = function(view, model,Id){
         view.empty();
         stateController.indexView.update1();
         stateController.currentMainController = new indexController(stateController.indexView,model);
+        stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
     })
 }
