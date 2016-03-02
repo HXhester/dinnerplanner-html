@@ -15,8 +15,8 @@ var SingleDish = function (container, model, Id) {
    // console.log("Number of guests: "+model.numberOfGuests);
     //console.log("ID FOR THE DISH: "+Id);
     
-    container.html('<div class="row"><div class="col-md-4" id="dishcontent"><h1>'+model.getDish(Id).name+'</h1></div></div>');
-    container.find("#dishcontent").append('<div><img src=/images/'+model.getDish(Id).image+'></div><p class="discription">'+model.getDish(Id).description+'</p>');
+    container.html('<div class="row"><div class="col-md-4" id="dishcontent"><h1>'+model.getDish(Id).Title+'</h1></div></div>');
+    container.find("#dishcontent").append('<div><img src="'+model.getDish(Id).ImageURL+'"></div><p class="discription">'+model.getDish(Id).Description+'</p>');
     container.find("#dishcontent").append('<button id="backToSelect" class="btn">Back to select dish</button>');
     container.find("#dishcontent").after('<div class="col-md-4" id="ingTable"><h3>Ingredients for '+model.getNumberOfGuests()+' people</h3><div id="ingredientTable"></div><button id="addDish" class="btn">Add dish</button></div>');
     
@@ -27,16 +27,27 @@ var SingleDish = function (container, model, Id) {
         var length = tableData.length;
         for(i=0; i < length; i++){
             var row = $('<tr></tr>');
+<<<<<<< Updated upstream
             row.append('<td>'+tableData[i].name+'</td>');
             row.append('<td>'+tableData[i].quantity*model.getNumberOfGuests()+'</td>');
             row.append('<td>'+tableData[i].unit+'</td>');
             row.append('<td>'+tableData[i].price*model.getNumberOfGuests()+'</td>');
+=======
+            row.append('<td>'+tableData[i].Name+'</td>');
+            row.append('<td>'+tableData[i].Quantity+'</td>');
+            row.append('<td>'+tableData[i].Unit+'</td>');
+            row.append('<td>'+tableData[i].price+'</td>');
+>>>>>>> Stashed changes
             table.append(row);
         }
 
         $('#ingredientTable').append(table);
     }
+<<<<<<< Updated upstream
     
+=======
+    createTable(model.getDish(Id).Ingredients);
+>>>>>>> Stashed changes
     
     this.updateSD=function(obj,arg){
         

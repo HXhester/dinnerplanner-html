@@ -25,11 +25,11 @@ var SideMenu =function(container, model){
             var row = $('<tr ></tr>');
             var cost = 0;
             for(j=0;j<menu[i].ingredients.length;j++){
-                cost += menu[i].ingredients[j].price;
+                cost += menu[i].ingredients[j].Quantity;
             }
-            row.append('<td class="hoverDelete">'+menu[i].name+'</td>');
+            row.append('<td class="hoverDelete">'+menu[i].Title+'</td>');
             row.append('<td class="hoverDelete">'+cost+'</td>');
-            row.append('<td class="hoverDelete"><div class="delete" id="'+menu[i].name+'" style="color:gray">x</div></td>');
+            row.append('<td class="hoverDelete"><div class="delete" id="'+menu[i].Title+'" style="color:gray">x</div></td>');
             table.append(row);
         }
         

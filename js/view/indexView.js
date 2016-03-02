@@ -43,9 +43,9 @@ var IndexView = function (container, model) {
         var length = tableData.length;
         
         for(i=0; i < length; i++){
+            console.log(tableData[i].Title);
             
-            
-            row.append('<div class="col-md-4" id="'+tableData[i].id+'">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</div>');
+            row.append('<div class="col-md-4" id="'+tableData[i].recipeId+'">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="'+tableData[i].ImageURL+'">'+tableData[i].Title+'</div>');
 
 
             table.append(row);
@@ -56,21 +56,19 @@ var IndexView = function (container, model) {
     }
     
     
-    this.update1 = function(obj,arg){
+    this.update1 = function(obj){
+        console.log("Notified!", obj);
         // change dishes based on combobox #dishtype, change view with model
-        container.find("#content-grid").empty();
-        createSelection(model.getAllDishes(container.find("#dishtype").val(), container.find("#search").val()));
-        //row above creates problems, don't know why!!
-        //createSearchResults(model.getAllDishes(container.find("#dishtype").val(),container.find("#search")));
-
-        //console.log("updating dishes");
-        //console.log(container.find("#dishtype").val());
-
-        
+        this.container.find("#content-grid").empty();
+        //createSelection(model.getAllDishes(container.find("#dishtype").val(), container.find("#search").val()));
+        if(obj == "dataAvailable") {
+            this.container.find("#content-grid").html("WOW");    
+        }
     }
     
     model.addObserver(this.update1); 
-    this.update1(container);
+    //model.getAllDishes("", "");
+    //this.update1();
 
     
     

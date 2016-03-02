@@ -6,7 +6,31 @@ var DinnerModel = function() {
     this.selectedDishes = []; // an list of dishes
     this.numberOfGuests = 1;
     this.observers = [];
+    
+    this.dishes = [];
 
+    
+    
+    
+//    var syncRequest = function () {
+//        $.ajax({
+//            type: 'GET',
+//            // You need to get your API key from api.BigOven.com
+//            url: 'http://api.bigoven.com/recipes?pg=1&rpp=11&api_key=1hg3g4Dkwr6pSt22n00EfS01rz568IR6',
+//            dataType: 'json',
+//            success: function(data){
+//              //  console.log(data);
+//                    
+//            },
+//            error: function(xhr,status,error) {
+//                console.error(error);
+//            }
+//        })
+//    }
+    
+//        syncRequest();
+    
+    
 	this.setNumberOfGuests = function(num,obj) {
 		//TODO Lab 2
         this.numberOfGuests = num;
@@ -25,8 +49,8 @@ var DinnerModel = function() {
 	this.getSelectedDish = function(type) {
 		//TODO Lab 2
         for (i in this.selectedDishes) {
-            if(type === this.selectedDishes[i].type) {
-                return this.selectedDishes[i].name;
+            if(type === this.selectedDishes[i].Category) {
+                return this.selectedDishes[i].Title;
                 // add a <span> in index.html to show the seleted dish with type
             }
         }
@@ -44,11 +68,11 @@ var DinnerModel = function() {
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function(id) {
 		//TODO Lab 2
-        var length = this.getDish(id).ingredients.length;
+        var length = this.getDish(id).Ingredients.length;
         
         var ing=[];
         for(i=0;i<length;i++){
-            ing.push(this.getDish(id).ingredients[i].name);
+            ing.push(this.getDish(id).Ingredients[i].Title);
         }
         return ing;            // maybe for shoppinglist
     }
@@ -59,9 +83,9 @@ var DinnerModel = function() {
         //TODO Lab 2
         var totalprice = 0;
         for (i in this.selectedDishes) {
-            for (j in this.selectedDishes[i].ingredients){
+            for (j in this.selectedDishes[i].Ingredients){
                 
-                totalprice += this.selectedDishes[i].ingredients[j].price * this.numberOfGuests;
+                totalprice += this.selectedDishes[i].Ingredients[j].Quantity * this.numberOfGuests;
                 
             }
         }
@@ -77,8 +101,15 @@ var DinnerModel = function() {
         var SeDishes = this.selectedDishes;
         //TODO Lab 2 
         for (i=0; i<length;i++) {
+<<<<<<< Updated upstream
             if(SeDishes[i].type === this.getDish(id).type) {
                 SeDishes.splice(index,1);
+=======
+            //console.log(this.selectedDishes[i].Category);
+            //console.log(this.getDish(id).Category);
+            if(this.selectedDishes[i].Category === this.getDish(id).Category) {
+            this.selectedDishes.splice(index,1);
+>>>>>>> Stashed changes
             }; 
             
         };
@@ -109,32 +140,76 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
+    
+    var self = this;
 	this.getAllDishes = function (type,filter) {
-	  return $(dishes).filter(function(index,dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			$.each(dish.ingredients,function(index,ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
-			}
-		}
-	  	return dish.type == type && found;
-	  });	
-	}
+
+        var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
+        var titleKeyword = filter;
+        var titleKeyword2 = type;
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + titleKeyword + "&api_key=" + apiKey;
+        
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+                alert('success');
+                console.log(data);
+                self.dishes = data.Results;
+                self.notifyObservers("dishesAvailable");
+                
+            }
+        });
+        //console.log(OvenDish);
+        //return OvenDish;
+    }
+        
+        
+//	  return $(dishes).filter(function(index,dish) {
+//		var found = true;
+//		if(filter){
+//			found = false;
+//			$.each(dish.ingredients,function(index,ingredient) {
+//				if(ingredient.name.indexOf(filter)!=-1) {
+//					found = true;
+//				}
+//			});
+//			if(dish.name.indexOf(filter) != -1)
+//			{
+//				found = true;
+//			}
+//		}
+//	  	return dish.type == type && found;
+//	  });	
+	
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
+	  function getRecipeJson() {
+        var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
+        var recipeID = id;
+        var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
+
+          $.ajax({
+              type: "GET",
+              dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+                alert('success');
+                model.notifyObservers();
+                //console.log(data);
+            }
+        });
+       }
+        
+//        for(key in dishes){
+//			if(dishes[key].id == id) {
+//				return dishes[key];
+//			}
+//		}
 	}
     
     this.getDishWithName = function(name){
@@ -158,7 +233,7 @@ var DinnerModel = function() {
     this.notifyObservers=function(obj) {
         //console.log(this.observers);
         for( var i=0; i<this.observers.length; i++){
-            this.observers[i](this,obj);
+            this.observers[i](obj);
         }
     };
     
@@ -170,7 +245,8 @@ var DinnerModel = function() {
 	// defining the unit i.e. "g", "slices", "ml". Unit
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-	var dishes = [{
+	var OvenDish= [];
+    var dishes = [{
 		'id':1,
 		'name':'French toast',
 		'type':'starter',

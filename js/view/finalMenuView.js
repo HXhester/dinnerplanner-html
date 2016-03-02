@@ -6,7 +6,7 @@ var FinalMenu = function (container, model) {
     container.html("<div class='row'><div id='printTop' class='container-fluid'></div></div>");
     this.printTop = container.find("#printTop");
     
-    this.printTop.html("<div class='row'><div class='col-md-6'><h2 class='printheader'>My Dinner: "+model.getNumberOfGuests()+ "  people</h2></div><div class='col-md-6'><button class='back btn'>Go back and edit dinner</button></div></div>");
+    this.printTop.html("<div class='row'><h2 class='printheader'>My Dinner: "+model.getNumberOfGuests()+ "  people</h2></div><div class='col-md-6'><button class='back btn'>Go back and edit dinner</button></div></div>");
     container.append("<div id='menugrid'></div>");
     //this.menugrid = container.find("#menugrid");
     
@@ -17,7 +17,7 @@ var FinalMenu = function (container, model) {
         var length = tableData.length;
         for(i=0; i < length; i++){
             
-            row.append('<div class="col-md-4">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'"><br>'+tableData[i].name+'</div>');
+            row.append('<div class="col-md-4">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="'+tableData[i].ImageURL+'"><br>'+tableData[i].Title+'</div>');
 
             table.append(row);
         }
