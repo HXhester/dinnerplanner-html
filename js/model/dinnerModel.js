@@ -95,28 +95,24 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added. (getSelectedDishes work here)
 
-	this.addDishToMenu = function(id) {
+	this.addDishToMenu = function(id,obj) {
 		var length = this.selectedDishes.length;
         var index = this.selectedDishes.indexOf(this.getDish(id));
         var SeDishes = this.selectedDishes;
         //TODO Lab 2 
         for (i=0; i<length;i++) {
-<<<<<<< Updated upstream
-            if(SeDishes[i].type === this.getDish(id).type) {
-                SeDishes.splice(index,1);
-=======
+
             //console.log(this.selectedDishes[i].Category);
             //console.log(this.getDish(id).Category);
             if(this.selectedDishes[i].Category === this.getDish(id).Category) {
             this.selectedDishes.splice(index,1);
->>>>>>> Stashed changes
             }; 
             
         };
         SeDishes.push(this.getDish(id));
         this.selectedDishes = SeDishes;
 
-        this.notifyObservers();
+        this.notifyObservers(obj);
 //        for (i=0; i<length;i++) {
 //            if(this.selectedDishes[i].type === this.getDish(id).type) {
 //            this.selectedDishes.splice(index,1);

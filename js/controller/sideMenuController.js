@@ -1,7 +1,7 @@
 var SideMenuController = function(view, model) {
  
     $('#numberOfGuests').change(function(){
-        model.setNumberOfGuests(view.getNumberOfGuests());
+        model.setNumberOfGuests(view.getNumberOfGuests(),view.container);
         stateController.currentMainController = new indexController(stateController.indexView,model);
         stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
     })

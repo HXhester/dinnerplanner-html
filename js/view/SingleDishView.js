@@ -27,29 +27,18 @@ var SingleDish = function (container, model, Id) {
         var length = tableData.length;
         for(i=0; i < length; i++){
             var row = $('<tr></tr>');
-<<<<<<< Updated upstream
             row.append('<td>'+tableData[i].name+'</td>');
             row.append('<td>'+tableData[i].quantity*model.getNumberOfGuests()+'</td>');
             row.append('<td>'+tableData[i].unit+'</td>');
             row.append('<td>'+tableData[i].price*model.getNumberOfGuests()+'</td>');
-=======
-            row.append('<td>'+tableData[i].Name+'</td>');
-            row.append('<td>'+tableData[i].Quantity+'</td>');
-            row.append('<td>'+tableData[i].Unit+'</td>');
-            row.append('<td>'+tableData[i].price+'</td>');
->>>>>>> Stashed changes
+
             table.append(row);
         }
 
         $('#ingredientTable').append(table);
     }
-<<<<<<< Updated upstream
     
-=======
-    createTable(model.getDish(Id).Ingredients);
->>>>>>> Stashed changes
-    
-    this.updateSD=function(obj,arg){
+    this.updateSD=function(obj){
         
         container.find('#ingTable h3').html('Ingredients for '+model.getNumberOfGuests()+' people');
         container.find('#ingredientTable').empty();

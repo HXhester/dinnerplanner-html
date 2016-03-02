@@ -24,17 +24,10 @@ var indexController = function(view, model) {
    
    $('#searchbutton').click(function(){
     //view.container.find("#content-grid").html("");
-<<<<<<< Updated upstream
-       //view.createSearchResults(model.getAllDishes(view.dishtype.val(),view.searchquery.val()));  
-       stateController.indexView.update1();
-
-       stateController.currentMainController = new indexController(stateController.indexView,model);
-=======
-       //model.getAllDishes(view.dishtype.val(),view.searchquery.val());  
+    //for initialize
        model.getAllDishes(view.container.find("#dishtype").val(), view.container.find("#search").val());
        //stateController.indexView.update1();
        //stateController.currentMainController = new indexController(stateController.indexView,model);
->>>>>>> Stashed changes
 
    })
    
