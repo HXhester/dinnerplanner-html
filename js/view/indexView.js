@@ -55,7 +55,6 @@ var IndexView = function (container, model) {
     
     //the obj comes from model
     this.update1 = function(obj){
-        console.log("Notified!", obj);
         // change dishes based on combobox #dishtype, change view with model
         
         if(obj === "dishesAvailable") {

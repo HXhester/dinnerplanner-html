@@ -154,29 +154,29 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  function getRecipeJson() {
+	  
         var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
         var recipeID = id;
-        var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
+        var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key=" + apiKey;
 
-          $.ajax({
-              type: "GET",
-              dataType: 'json',
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
             cache: false,
             url: url,
             success: function (data) {
                 alert('success');
-                self.singleDish = data.Results;
+                self.singleDish = data;
+                self.notifyObservers("getDish");
             }
         });
-       }
+    }
         
 //        for(key in dishes){
 //			if(dishes[key].id == id) {
 //				return dishes[key];
 //			}
 //		}
-	}
     
     this.getDishWithName = function(name){
         for(key in this.selectedDishes){

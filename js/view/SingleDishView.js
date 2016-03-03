@@ -4,7 +4,6 @@
 var SingleDish = function (container, model) {
 	
     this.container = container;
-    
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 
@@ -18,10 +17,10 @@ var SingleDish = function (container, model) {
 //    container.html('<div class="row"><div class="col-md-4" id="dishcontent"><h1>'+model.getDish(Id).Title+'</h1></div></div>');
 //    container.find("#dishcontent").append('<div><img src="'+model.getDish(Id).ImageURL+'"></div><p class="discription">'+model.getDish(Id).Description+'</p>');
     
-    container.html('<div class="row"><div class="col-md-4" id="dishcontent"><h1>'+model.singleDish.Title+'</h1></div></div>');
-    container.find("#dishcontent").append('<div><img src="'+model.singleDish.ImageURL+'"></div><p class="discription">'+model.singleDish.Description+'</p>');
-    
-    container.find("#dishcontent").append('<button id="backToSelect" class="btn">Back to select dish</button>');
+    container.html('<div class="row"><div class="col-md-4" id="dishcontent"></div></div>');
+//    container.find("#dishcontent").append('<div><img src="'+model.singleDish.ImageURL+'"></div><p class="discription">'+model.singleDish.Description+'</p>');
+//    
+//    container.find("#dishcontent").append('<button id="backToSelect" class="btn">Back to select dish</button>');
     container.find("#dishcontent").after('<div class="col-md-4" id="ingTable"><h3>Ingredients for '+model.getNumberOfGuests()+' people</h3><div id="ingredientTable"></div><button id="addDish" class="btn">Add dish</button></div>');
     
     
@@ -42,13 +41,17 @@ var SingleDish = function (container, model) {
         $('#ingredientTable').append(table);
     }
     
-    createTable(model.singleDish.Ingredients);
+    //createTable(model.singleDish.Ingredients);
     this.updateSD=function(obj){
         if(obj==="changeNumOfGuests"){
             container.find('#ingTable h3').html('Ingredients for '+model.getNumberOfGuests()+' people');
             container.find('#ingredientTable').empty();
             //createTable(model.getDish(Id).ingredients);
             createTable(model.singleDish.Ingredients);
+        }
+        if(obj==="getDish"){
+            container.find("#dishcontent").empty();
+            container.find("#dishcontent").html('<h1>'+model.singleDish.Title+'</h1><div><img src="'+model.singleDish.ImageURL+'"></div><p class="discription">'+model.singleDish.Description+'</p><button id="backToSelect" class="btn">Back to select dish</button>');
         }
     }
     model.addObserver(this.updateSD); 
