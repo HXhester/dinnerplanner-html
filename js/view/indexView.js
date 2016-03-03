@@ -44,7 +44,7 @@ var IndexView = function (container, model) {
         for(i=0; i < length; i++){
             //  console.log(tableData[i].Title);
             
-            row.append('<div class="col-md-4" id="'+tableData[i].RecipeID+'">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="'+tableData[i].ImageURL+'">'+tableData[i].Title+'</div>');
+            row.append('<div class="col-md-4 dishlist" id="'+tableData[i].RecipeID+'">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="'+tableData[i].ImageURL+'">'+tableData[i].Title+'</div>');
             
             table.append(row);
         }

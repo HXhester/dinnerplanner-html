@@ -22,7 +22,7 @@ var SingleDish = function (container, model) {
 //    
 //    container.find("#dishcontent").append('<button id="backToSelect" class="btn">Back to select dish</button>');
     container.find("#dishcontent").after('<div class="col-md-4" id="ingTable"><h3>Ingredients for '+model.getNumberOfGuests()+' people</h3><div id="ingredientTable"></div><button id="addDish" class="btn">Add dish</button></div>');
-    
+    container.find("#dishcontent").append('<div id="DISH"></div><button id="backToSelect" class="btn">Back to select dish</button>');
     
     function createTable(tableData) {
         var table = $('<table class="container-fluid"></table>');
@@ -50,8 +50,9 @@ var SingleDish = function (container, model) {
             createTable(model.singleDish.Ingredients);
         }
         if(obj==="getDish"){
-            container.find("#dishcontent").empty();
-            container.find("#dishcontent").html('<h1>'+model.singleDish.Title+'</h1><div><img src="'+model.singleDish.ImageURL+'"></div><p class="discription">'+model.singleDish.Description+'</p><button id="backToSelect" class="btn">Back to select dish</button>');
+            console.log("get dish");
+            container.find("#DISH").empty();
+            container.find("#DISH").html('<h1>'+model.singleDish.Title+'</h1><div><img src="'+model.singleDish.ImageURL+'"></div><p class="discription">'+model.singleDish.Description+'</p>');
         }
     }
     model.addObserver(this.updateSD); 

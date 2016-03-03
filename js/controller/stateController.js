@@ -15,18 +15,21 @@ var StateController = function(model) {
     this.finalMenu = new FinalMenu($("#finalMenu"), model);
     this.finalMenuController = new finalController(this.finalMenu, model);
     
-    this.printView = new PrintView($("#print"),model);
+    this.printView = new PrintView($("#print"), model);
     this.printViewController = new PrintController(this.printView, model);
     
-    this.changeMainView=function (view, viewController){
-        console.log("changing view");
-        //this.currentMainView.container.empty();
-        this.currentMainView = view;
-        this.currentMainView.container.show();
-        this.currentMainController = viewController; 
-
-    }
-
+    this.singleDishView = new SingleDish($("#singleDish"), model);
+    this.singleDishController = new singleDishController(this.singleDishView, model);
+    
+//    this.changeMainView=function (view, viewController){
+//        //console.log("changing view");
+//        //this.currentMainView.container.empty();
+//        this.currentMainView = view;
+//        this.currentMainView.container.show();
+//        this.currentMainController = viewController; 
+//
+//    }
+    this.singleDishView.container.hide();
     this.currentSideView.container.hide();
     this.indexView.container.hide();
     //this.singleDishView.container.hide();
