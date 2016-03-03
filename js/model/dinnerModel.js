@@ -120,7 +120,7 @@ var DinnerModel = function() {
         var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
         var titleKeyword = filter;
         var titleKeyword2 = type;
-        var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + titleKeyword + "&any_kw=" + titleKeyword2 + "&api_key=" + apiKey;
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=24&title_kw=" + titleKeyword + "&any_kw=" + titleKeyword2 + "&api_key=" + apiKey;
         
         $.ajax({
             type: "GET",
@@ -128,14 +128,16 @@ var DinnerModel = function() {
             cache: false,
             url: url,
 //TODO:when the data is loading, create a gif in indexview with id="loading"----//
-//            beforeSend:function(){
-//            // show gif here, eg:
-//                $("#loading").show();
-//            },
-//            complete:function(){
-//            // hide gif here, eg:
-//                $("#loading").hide();
-//            },
+            beforeSend:function(){
+            // show gif here, eg:
+                $("#table").hide();
+                $("#loading").show();
+            },
+            complete:function(){
+            // hide gif here, eg:
+                $("#loading").hide();
+                $("#table").show();
+            },
 //-------------------------------------------------------------------------------//
             success: function (data) {
                 //alert('success');
@@ -144,9 +146,9 @@ var DinnerModel = function() {
                 self.notifyObservers("dishesAvailable");
             },
 //TODO: When internet is not working----------------------------------------------//
-//            error: function(){
-//                alert('Internet disconnected!');
-//            }
+            error: function(){
+                alert('Internet disconnected!');
+            }
         });
         
     }	
@@ -167,6 +169,19 @@ var DinnerModel = function() {
                 //alert('success');
                 self.singleDish = data;
                 self.notifyObservers("getDish");
+            },
+            error: function(){
+                alert('Internet disconnected!');
+            },
+            beforeSend:function(){
+            // show gif here, eg:
+                $("#singleDish").hide();
+                $("#loading").show();
+            },
+            complete:function(){
+            // hide gif here, eg:
+                $("#loading").hide();
+                $("#singleDish").show();
             }
         });
     }

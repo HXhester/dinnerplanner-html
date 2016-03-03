@@ -4,7 +4,8 @@ var indexController = function(view, model) {
 
 
        model.getAllDishes($("#dishtype").val(), $("#search").val());
-       stateController.indexController = new indexController($("#view-index"), model);
+       //stateController.indexController = new indexController($("#view-index"), model);
+       stateController.indexView.update1();
        
     })
    
@@ -12,11 +13,11 @@ var indexController = function(view, model) {
     
        model.getAllDishes($("#dishtype").val(), $("#search").val());
        stateController.indexController = new indexController($("#view-index"), model);
-
+       console.log(model.dishes);
    })
    
    
-  $('.dishlist').on("click", function() {   
+  $("#content-grid").on("click", ".dishlist", function() {   
 
        stateController.indexView.container.hide();
        
@@ -24,7 +25,7 @@ var indexController = function(view, model) {
        var id = $(this).attr('id');
        model.getDish(id);
 
-       console.log("click and get dish"+id);
+       console.log("click and get dish: "+ id);
        stateController.singleDishView.container.show();
       
        //stateController.changeMainView(new SingleDish($("#singleDish"),model),new singleDishController($("#singleDish"),model,id));

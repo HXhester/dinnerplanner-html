@@ -15,27 +15,6 @@ var IndexView = function (container, model) {
     this.navigation.append('<div class="col-md-6"><select class="form-control" id="dishtype"><option>appetizer</option><option>main dish</option><option>dessert</option></select></div>')
     this.dishtype = container.find("#dishtype");
     
-
-    
-    
-//    function createSearchResults(tableData) {
-//        var table = $('<div id="searchtable"></div>');
-//        var row = $('<div id="searchrow"></div>');
-//        var length = tableData.length;
-//        for(i=0; i < length; i++){
-//            
-//            row.append('<div class="col-md-4" id="'+tableData[i].id+'">'+'<img style="height:120px; width:120px" class="img-thumbnail" src="images/'+tableData[i].image+'">'+tableData[i].name+'</div>');
-//
-//            table.append(row);
-//        }
-//
-//
-//        container.find("#content-grid").append(table);
-//    }
-    
-    
-    //this.contentgrid.prepend("<div id='table'></div>");
-    //this.table = container.find("#table");
     
     function createSelection(tableData) {
         
