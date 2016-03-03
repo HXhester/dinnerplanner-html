@@ -31,7 +31,7 @@ var SideMenuController = function(view, model) {
         
         console.log($(this).attr("id"));
         model.removeDishFromMenu(model.getDishWithName($(this).attr("id")));
-        view.update();
+        //view.update();
         stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
     })
     

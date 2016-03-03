@@ -30,10 +30,10 @@ var SingleDish = function (container, model) {
         var length = tableData.length;
         for(i=0; i < length; i++){
             var row = $('<tr></tr>');
-            row.append('<td>'+tableData[i].IngredientInfo.Name+'</td>');
+            row.append('<td>'+tableData[i].Name+'</td>');
             row.append('<td>'+tableData[i].Quantity*model.getNumberOfGuests()+'</td>');
             row.append('<td>'+tableData[i].Unit+'</td>');
-            row.append('<td>'+tableData[i].Unit*model.getNumberOfGuests()+'</td>');
+            row.append('<td>'+tableData[i].Quantity*model.getNumberOfGuests()+'</td>');
 
             table.append(row);
         }
@@ -41,7 +41,7 @@ var SingleDish = function (container, model) {
         $('#ingredientTable').append(table);
     }
     
-    //createTable(model.singleDish.Ingredients);
+    
     this.updateSD=function(obj){
         if(obj==="changeNumOfGuests"){
             container.find('#ingTable h3').html('Ingredients for '+model.getNumberOfGuests()+' people');
@@ -50,9 +50,11 @@ var SingleDish = function (container, model) {
             createTable(model.singleDish.Ingredients);
         }
         if(obj==="getDish"){
-            console.log("get dish");
+            
             container.find("#DISH").empty();
             container.find("#DISH").html('<h1>'+model.singleDish.Title+'</h1><div><img src="'+model.singleDish.ImageURL+'"></div><p class="discription">'+model.singleDish.Description+'</p>');
+            container.find('#ingredientTable').empty();
+            createTable(model.singleDish.Ingredients);
         }
     }
     model.addObserver(this.updateSD); 

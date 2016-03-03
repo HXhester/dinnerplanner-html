@@ -22,7 +22,7 @@ var SideMenu =function(container, model){
         table.append('<th>Dish</th><th>Cost</th>');
         var length = menu.length;
         for(i=0; i < length; i++){
-            var row = $('<tr ></tr>');
+            var row = $('<tr></tr>');
             var cost = 0;
             for(j=0;j<menu[i].Ingredients.length;j++){
                 cost += menu[i].Ingredients[j].Quantity;
@@ -51,6 +51,8 @@ var SideMenu =function(container, model){
 
         if(obj==="removeDish"||obj==="addDish"){
             container.find('#selectMenu').empty();
+            
+            console.log(model.getFullMenu());
             createMenu(model.getFullMenu());
         }
     }

@@ -2,18 +2,14 @@ var indexController = function(view, model) {
     
    $('#dishtype').on("change", function(){
 
-
        model.getAllDishes($("#dishtype").val(), $("#search").val());
-       //stateController.indexController = new indexController($("#view-index"), model);
-       stateController.indexView.update1();
-       
+    
     })
    
    $('#searchbutton').click(function(){
     
        model.getAllDishes($("#dishtype").val(), $("#search").val());
-       stateController.indexController = new indexController($("#view-index"), model);
-       console.log(model.dishes);
+
    })
    
    

@@ -75,19 +75,20 @@ var DinnerModel = function() {
 
 	this.addDishToMenu = function(id) {
 		var length = this.selectedDishes.length;
-        var index = this.selectedDishes.indexOf(this.getDish(id));
+        this.getDish(id);
+        var index = this.selectedDishes.indexOf(this.singleDish);
         var SeDishes = this.selectedDishes;
         //TODO Lab 2 
         for (i=0; i<length;i++) {
 
             //console.log(this.selectedDishes[i].Category);
             //console.log(this.getDish(id).Category);
-            if(SeDishes[i].Category === this.getDish(id).Category) {
+            if(SeDishes[i].Category === this.singleDish.Category) {
             SeDishes.splice(index,1);
             }; 
             
         };
-        SeDishes.push(this.getDish(id));
+        SeDishes.push(this.singleDish);
         this.selectedDishes = SeDishes;
 
         this.notifyObservers("addDish");
@@ -105,7 +106,8 @@ var DinnerModel = function() {
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 2
-        var index = this.selectedDishes.indexOf(this.getDish(id));
+        this.getDish(id);
+        var index = this.selectedDishes.indexOf(this.singleDish);
         this.selectedDishes.splice(index,1);
         this.notifyObservers("removeDish");
 	}
@@ -166,7 +168,7 @@ var DinnerModel = function() {
             cache: false,
             url: url,
             success: function (data) {
-                //alert('success');
+                alert('success');
                 self.singleDish = data;
                 self.notifyObservers("getDish");
             },
@@ -194,7 +196,7 @@ var DinnerModel = function() {
     
     this.getDishWithName = function(name){
         for(key in this.selectedDishes){
-            if(this.selectedDishes[key].name == name){
+            if(this.selectedDishes[key].name === name){
                 return this.selectedDishes[key].id;
             }
         }
