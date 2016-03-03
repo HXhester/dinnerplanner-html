@@ -44,7 +44,7 @@ var SideMenu =function(container, model){
     this.update=function(obj){
         // Calculate price of the menu
         if(obj==="changeNumOfGuests"){
-            container.find('#totalPrice').html('In Total: '+model.getNumberOfGuests());
+            container.find('#totalPrice').html('In Total: '+model.getTotalMenuPrice());
         }
         // When the selected menu changes, update the table
         //container.find('#selectMenuTable').html(''); both works

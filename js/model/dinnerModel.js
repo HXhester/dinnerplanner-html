@@ -75,7 +75,7 @@ var DinnerModel = function() {
 
 	this.addDishToMenu = function(id) {
 		var length = this.selectedDishes.length;
-        this.getDish(id);
+        //this.getDish(id);
         var index = this.selectedDishes.indexOf(this.singleDish);
         var SeDishes = this.selectedDishes;
         //TODO Lab 2 
@@ -106,7 +106,7 @@ var DinnerModel = function() {
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 2
-        this.getDish(id);
+        //this.getDish(id);
         var index = this.selectedDishes.indexOf(this.singleDish);
         this.selectedDishes.splice(index,1);
         this.notifyObservers("removeDish");

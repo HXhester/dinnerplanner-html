@@ -1,7 +1,7 @@
 var SideMenuController = function(view, model) {
  
     $('#numberOfGuests').change(function(){
-        model.setNumberOfGuests(view.getNumberOfGuests(),view.container);
+        model.setNumberOfGuests(view.getNumberOfGuests());
 //        stateController.currentMainController = new indexController(stateController.indexView,model);
 //        stateController.currentSideController = new SideMenuController(stateController.currentSideView,model);
     })
@@ -11,7 +11,7 @@ var SideMenuController = function(view, model) {
         //stateController.changeMainView(new PrintView($('#print'),model),new PrintController($('#print'),model));
         //stateController.changeMainView(new finalMenu($('#finalMenu'),model),new finalMenuController($('#print'),model));
         
-        
+        stateController.singleDishView.container.hide();
         stateController.currentMainView.container.hide();
         stateController.currentSideView.container.hide();
         stateController.indexView.container.hide();
