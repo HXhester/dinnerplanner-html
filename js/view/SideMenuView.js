@@ -24,8 +24,8 @@ var SideMenu =function(container, model){
         for(i=0; i < length; i++){
             var row = $('<tr ></tr>');
             var cost = 0;
-            for(j=0;j<menu[i].ingredients.length;j++){
-                cost += menu[i].ingredients[j].Quantity;
+            for(j=0;j<menu[i].Ingredients.length;j++){
+                cost += menu[i].Ingredients[j].Quantity;
             }
             row.append('<td class="hoverDelete">'+menu[i].Title+'</td>');
             row.append('<td class="hoverDelete">'+cost+'</td>');

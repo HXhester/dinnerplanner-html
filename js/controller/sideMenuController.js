@@ -7,7 +7,7 @@ var SideMenuController = function(view, model) {
     })
     
     $('#confirm').click(function(){
-        console.log("final menu!!!");
+        //console.log("final menu!!!");
         //stateController.changeMainView(new PrintView($('#print'),model),new PrintController($('#print'),model));
         //stateController.changeMainView(new finalMenu($('#finalMenu'),model),new finalMenuController($('#print'),model));
         

@@ -4,6 +4,7 @@ var IndexView = function (container, model) {
     container.html('<div id="navigation" class="row"></div><div id="content-grid"></div>');
     this.navigation = container.find("#navigation");
     //this.contentgrid = container.find("#content-grid");
+    container.find("#content-grid").append("<img id='loading' src='images/ajax-loader.gif'/>");
 
     
     
@@ -11,8 +12,9 @@ var IndexView = function (container, model) {
     
     this.searchquery = container.find("#search");
 
-    this.navigation.append('<div class="col-md-6"><select class="form-control" id="dishtype"><option>starter</option><option>main dish</option><option>dessert</option></select></div>')
+    this.navigation.append('<div class="col-md-6"><select class="form-control" id="dishtype"><option>appetizer</option><option>main dish</option><option>dessert</option></select></div>')
     this.dishtype = container.find("#dishtype");
+    
 
     
     
@@ -55,8 +57,8 @@ var IndexView = function (container, model) {
     
     //the obj comes from model
     this.update1 = function(obj){
+        //$("#loading").hide();
         // change dishes based on combobox #dishtype, change view with model
-        
         if(obj === "dishesAvailable") {
             //this.container.find("#content-grid").html("WOW");  
             container.find("#content-grid").empty();
@@ -66,7 +68,7 @@ var IndexView = function (container, model) {
     }
     
     model.addObserver(this.update1);
-    model.getAllDishes("starter","");
+    model.getAllDishes("appetizer","");
     //model.getAllDishes("", "");
     //this.update1();
 

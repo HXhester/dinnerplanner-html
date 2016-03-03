@@ -9,6 +9,7 @@ var singleDishController = function(view, model){
         console.log("back to select");
         
         stateController.singleDishView.container.hide();
+
         stateController.indexView.container.show();
         $("#DISH").empty();
         //stateController.indexView.update1();
