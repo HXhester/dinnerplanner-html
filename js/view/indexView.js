@@ -4,7 +4,7 @@ var IndexView = function (container, model) {
     container.html('<div id="navigation" class="row"></div><div id="content-grid"></div>');
     this.navigation = container.find("#navigation");
     //this.contentgrid = container.find("#content-grid");
-    container.find("#content-grid").append("<img id='loading' src='images/ajax-loader.gif'/>");
+    this.navigation.after("<img id='loading' src='images/avokado.gif'/>");
 
     
     

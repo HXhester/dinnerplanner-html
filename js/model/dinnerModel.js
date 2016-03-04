@@ -119,7 +119,7 @@ var DinnerModel = function() {
     
     var self = this;
 	this.getAllDishes = function (type,filter) {
-        var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
+        var apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
         var titleKeyword = filter;
         var titleKeyword2 = type;
         var url = "http://api.bigoven.com/recipes?pg=1&rpp=24&title_kw=" + titleKeyword + "&any_kw=" + titleKeyword2 + "&api_key=" + apiKey;
@@ -132,6 +132,7 @@ var DinnerModel = function() {
 //TODO:when the data is loading, create a gif in indexview with id="loading"----//
             beforeSend:function(){
             // show gif here, eg:
+                console.log("LOADING");
                 $("#table").hide();
                 $("#loading").show();
             },
@@ -158,7 +159,7 @@ var DinnerModel = function() {
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
 	  
-        var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
+        var apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
         var recipeID = id;
         var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key=" + apiKey;
 
@@ -177,12 +178,13 @@ var DinnerModel = function() {
             },
             beforeSend:function(){
             // show gif here, eg:
+                console.log("LOADING SINGLE DISH");
                 $("#singleDish").hide();
-                $("#loading").show();
+                $("#loadingSingledish").show();
             },
             complete:function(){
             // hide gif here, eg:
-                $("#loading").hide();
+                $("#loadingSingledish").hide();
                 $("#singleDish").show();
             }
         });

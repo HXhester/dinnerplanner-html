@@ -4,23 +4,9 @@
 var SingleDish = function (container, model) {
 	
     this.container = container;
-	// Get all the relevant elements of the view (ones that show data
-  	// and/or ones that responed to interaction)
-
-    
-//	this.plusButton = container.find("#plusGuest");
-//	this.minusButton = container.find("#minusGuest");
-//  this.fullMenu = container.find("#sideMenu");
-   // console.log("Number of guests: "+model.numberOfGuests);
-    //console.log("ID FOR THE DISH: "+Id);
-    
-//    container.html('<div class="row"><div class="col-md-4" id="dishcontent"><h1>'+model.getDish(Id).Title+'</h1></div></div>');
-//    container.find("#dishcontent").append('<div><img src="'+model.getDish(Id).ImageURL+'"></div><p class="discription">'+model.getDish(Id).Description+'</p>');
-    
+    this.container.append("<img id='loadingSingledish' src='images/avokado.gif'/>");
     container.html('<div class="row"><div class="col-md-4" id="dishcontent"></div></div>');
-//    container.find("#dishcontent").append('<div><img src="'+model.singleDish.ImageURL+'"></div><p class="discription">'+model.singleDish.Description+'</p>');
-//    
-//    container.find("#dishcontent").append('<button id="backToSelect" class="btn">Back to select dish</button>');
+
     container.find("#dishcontent").after('<div class="col-md-4" id="ingTable"><h3>Ingredients for '+model.getNumberOfGuests()+' people</h3><div id="ingredientTable"></div><button id="addDish" class="btn">Add dish</button></div>');
     container.find("#dishcontent").append('<div id="DISH"></div><button id="backToSelect" class="btn">Back to select dish</button>');
     
