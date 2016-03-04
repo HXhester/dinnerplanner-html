@@ -31,9 +31,9 @@ var SingleDish = function (container, model) {
         for(i=0; i < length; i++){
             var row = $('<tr></tr>');
             row.append('<td>'+tableData[i].Name+'</td>');
-            row.append('<td>'+tableData[i].Quantity*model.getNumberOfGuests()+'</td>');
+            row.append('<td>'+Math.ceil(tableData[i].Quantity*model.getNumberOfGuests())+'</td>');
             row.append('<td>'+tableData[i].Unit+'</td>');
-            row.append('<td>'+tableData[i].Quantity*model.getNumberOfGuests()+'</td>');
+            row.append('<td>'+Math.ceil(tableData[i].Quantity*model.getNumberOfGuests())+'</td>');
 
             table.append(row);
         }

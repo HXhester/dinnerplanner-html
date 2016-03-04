@@ -168,7 +168,7 @@ var DinnerModel = function() {
             cache: false,
             url: url,
             success: function (data) {
-                alert('success');
+                //alert('success');
                 self.singleDish = data;
                 self.notifyObservers("getDish");
             },
