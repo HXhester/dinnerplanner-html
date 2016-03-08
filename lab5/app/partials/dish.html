@@ -3,3 +3,11 @@
 
 <!-- TODO in Lab 5: Display the dish information including image, Description, 
 Instructions, Ingredients and total cost. -->
+
+<h2>{{singleDish.Title}}</h2>
+
+<img ng-src="{{singleDish.ImageURL}}"/>
+<br>
+{{singleDish.Description}}
+
+<button ng-click="addDish(Dishid)" ng-controller="DinnerCtrl">Add Dish</button>

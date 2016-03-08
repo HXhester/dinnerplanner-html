@@ -3,3 +3,18 @@
 
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 not support it in free version) and list all the dishes that match the search. -->
+<div id="search">
+
+<input ng-model="query"/>
+<button ng-click="search(query)">Find</button>
+{{status}}
+<ul>
+ <li ng-repeat="dish in dishes">
+ <img ng-src="{{dish.ImageURL}}"/>
+ {{dish.Title}}
+ <a ng-href="#/dish/{{dish.RecipeID}}">View more</a>
+ {{dish.Category}} {{dish.Subcategory}}
+ </li>
+</ul>
+
+</div>
