@@ -1,0 +1,21 @@
+<a href="#/search" class="btn btn-primary">Go back and edit</a>
+
+<div class="row">
+  <div ng-repeat="dish in overviewMenu" class="col-md-4">
+    <a ng-href="#/dish/{{dish.RecipeID}}"><img ng-src="{{dish.ImageURL}}" class="thumbnail" style="width:150px;height:150px"/></a>
+    <a ng-href="#/dish/{{dish.RecipeID}}">{{dish.Title}}</a>
+  </div>
+</div>
+
+<table>
+  <tr>
+      <th>Dish</th>
+      <th>Description</th>
+      <th>Instructions</th>
+  </tr>
+  <tr ng-repeat="dish in finalMenu">
+    <td><img ng-src="{{dish.ImageURL}}" class="thumbnail" style="width:150px;height:150px"/><br>{{ dish.Title }}</td>
+    <td>{{ dish.Description }}</td>
+    <td>{{ dish.Instructions}}</td>
+  </tr>
+</table>

@@ -15,6 +15,7 @@ not support it in free version) and list all the dishes that match the search. -
 <input ng-model="query"/>
 <button ng-click="search(query)">Find</button>
 {{status}}
+<<<<<<< Updated upstream
 <ul>
  <li ng-repeat="dish in dishes">
  <img ng-src="{{dish.ImageURL}}"/>
@@ -23,6 +24,16 @@ not support it in free version) and list all the dishes that match the search. -
  {{dish.Category}}  {{dish.Subcategory}}
  </li>
 </ul>
+=======
+    
+<div class="row">
+  <div ng-repeat="dish in dishes" class="col-md-4">
+    <a ng-href="#/dish/{{dish.RecipeID}}"><img ng-src="{{dish.ImageURL}}" class="thumbnail" style="width:150px;height:150px"/></a>
+    <a ng-href="#/dish/{{dish.RecipeID}}">{{dish.Title}}</a><br>
+    {{dish.Category}} {{dish.Subcategory}}
+  </div>
+</div>
+>>>>>>> Stashed changes
 
 </div>
 </div>

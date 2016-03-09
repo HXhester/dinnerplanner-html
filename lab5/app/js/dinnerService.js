@@ -46,13 +46,14 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
         
 
 	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function(id) {
+	this.getAllIngredients = function() {
 		//TODO Lab 2
-        var length = this.getDish(id).Ingredients.length;
-        
+        console.log(self.SingleDish.Ingredients);
+        var length = self.SingleDish.Ingredients.length;
         var ing=[];
         for(i=0;i<length;i++){
-            ing.push(this.getDish(id).Ingredients[i].Title);
+            
+            ing.push(self.SingleDish.Ingredients[i].Title);
         }
         return ing; 
     }

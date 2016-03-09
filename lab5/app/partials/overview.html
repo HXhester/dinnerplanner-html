@@ -1,0 +1,9 @@
+<!--Dinner Overview-->
+<a href="#/search" class="btn btn-primary">Go back and edit</a>
+<div class="row">
+  <div ng-repeat="dish in overviewMenu" class="col-md-4">
+    <a ng-href="#/dish/{{dish.RecipeID}}"><img ng-src="{{dish.ImageURL}}" class="thumbnail" style="width:150px;height:150px"/></a>
+    <a ng-href="#/dish/{{dish.RecipeID}}">{{dish.Title}}</a>
+  </div>
+</div>
+<a href="#/prepare" class="btn btn-primary">Confirm Dinner</a>

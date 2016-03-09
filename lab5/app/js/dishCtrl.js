@@ -9,5 +9,5 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
     Dinner.getDish($scope.Dishid);
     
     $scope.singleDish = Dinner.getDish($scope.Dishid);
-    
+
 });

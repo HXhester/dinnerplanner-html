@@ -9,5 +9,19 @@ Instructions, Ingredients and total cost. -->
 <img ng-src="{{singleDish.ImageURL}}"/>
 <br>
 {{singleDish.Description}}
+<table>
+  <tr>
+      <th>Ingredient</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+      <th>Cost</th>
+  </tr>
+  <tr ng-repeat="ingredient in singleDish.Ingredients">
+      <td>{{ingredient.Name}}</td>
+      <td>{{ingredient.Quantity}}</td>
+      <td>{{ingredient.Unit}}</td>
+      <td>{{ingredient.Quantity}}</td>
+  </tr>
+</table>
 
 <button ng-click="addDish(Dishid)" ng-controller="DinnerCtrl">Add Dish</button>
