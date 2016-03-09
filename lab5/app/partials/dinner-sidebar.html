@@ -1,17 +1,20 @@
-<div id="sidebar">
+
+<div id="sidebar" class="col-md-2">
 Number of guest: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)"/>
 
 <!-- TODO in Lab 5: Display the items on the menu with cost for each -->
 <table>
   <tr>
-      <th>Dish</th>
-      <th>Cost</th>
+      <th class="col-md-1">Dish</th>
+      <th class="col-md-1">Cost</th>
   </tr>
   <tr ng-repeat="dish in menu">
     <td>{{ dish.Title }}</td>
     <td>{{ dish.StarRating }}</td>
   </tr>
+    
 </table>
+    <br>Total Cost: {{dish.StarRating}}
 
 <!-- Displaying number of guests both in input box and here is redundant. It is here only for the example
 purpose so you can see how some information from the model can be retrieved. In Lab 5 you will replace 
@@ -23,6 +26,9 @@ this with Total price of the menu -->
 
 <style>
     #sidebar{
-        width: 200px;
+
+        background-color: antiquewhite;
+        height: 100%;
+        padding: 20px;
     }
 </style>

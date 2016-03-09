@@ -1,3 +1,48 @@
 <!-- TODO in Lab 5: there is not much to do on the home screen. Just arrange the layout so it
 looks a bit nicer. -->
-<a href="#/search" class="btn btn-primary">Create new dinner</a>
+
+<style>
+   #start{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+@@ -32,17 +27,38 @@
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+}
+
+#start:after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../../../images/Dinner-Party.jpg"); 
+    width: 100%;
+    height: 100%;
+    opacity : 0.8;
+    z-index: -1;
+}
+
+#start p {
+    color: white;
+    margin-top: 100px;
+    font-size: 16pt;
+}
+
+#start h1 {
+    margin-top: 70px;
+    margin-bottom: 140px;
+
+}
+</style>
+<div class="container-fluid" id="start">
+    <div class="row">
+        <h1>MY DINNER PARTY</h1>
+<a href="#/search" class="btn btn-primary" id ="createDinner">Create new dinner</a>
+    </div>
+</div>

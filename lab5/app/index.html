@@ -28,12 +28,31 @@ which module to associate the app with. In app.js we create the "dinnerPlanner" 
 
   </head>
   <body>
+      <div class="header"> 
+      <div id="title" class="row"><h1>HOMELETTE</h1></div>
+      </div>
     <!-- Here in index.html you should put only the layout that is shared among all the screens (e.g. header
     ,footer, etc.). The rest of the view specific layout will go into the html partials (check partials folder) -->
 
     <!-- ng-view Angular directive is where the partials will be loaded. app.js configures the $routingProvider
     where you specify which partial should be loaded when. -->
-    <div ng-view></div>
+    
+          <div ng-view></div>
 
   </body>
 </html>
+
+<style>
+    .header {
+    padding-top:25px;
+    padding-left: 20px;
+    background-color: rgba(19,18,17,0.8);
+    height: 100px;
+    width: 100%;
+    background-repeat: repeat-x;
+}
+#title{
+    color: #FFFFFF;
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+</style>
