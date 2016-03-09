@@ -4,12 +4,18 @@
 <!-- TODO in Lab 5: Display the dish information including image, Description, 
 Instructions, Ingredients and total cost. -->
 
+<div class="col-md-6">
 <h2>{{singleDish.Title}}</h2>
 
-<img ng-src="{{singleDish.ImageURL}}"/>
+<img ng-src="{{singleDish.ImageURL}}" style="width:200px;height:200px"/>
 <br>
 {{singleDish.Description}}
-<table>
+<br>
+<a href="#/search" class="btn btn-primary" id ="createDinner">Back</a>
+
+</div>
+<div class="col-md-4">
+    <table class="table-striped">
   <tr>
       <th>Ingredient</th>
       <th>Quantity</th>
@@ -25,3 +31,4 @@ Instructions, Ingredients and total cost. -->
 </table>
 
 <button ng-click="addDish(Dishid)" ng-controller="DinnerCtrl">Add Dish</button>
+</div>

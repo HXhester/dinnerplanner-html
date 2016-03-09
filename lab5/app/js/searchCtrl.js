@@ -14,5 +14,14 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner) {
         },function(data){
         $scope.status = "There was an error";
         });
-    }
+    };
+    
+    $scope.init = function () {
+    // check if there is query in url
+    // and fire search in case its value is not empty
+        $scope.search();                       
+    };
+    
+        
+
 });

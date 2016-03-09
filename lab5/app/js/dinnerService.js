@@ -3,7 +3,7 @@
 // dependency on any service you need. Angular will insure that the
 // service is created first time it is needed and then just reuse it
 // the next time.
-dinnerPlannerApp.factory('Dinner',function ($resource) {
+dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
 
   // TODO in Lab 5: Add your model code from previous labs
   // feel free to remove above example code
@@ -11,13 +11,14 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   // a bit to take the advantage of Angular resource service
   // check lab 5 instructions for details
 
-    this.selectedDishes=[]; // an list of dishes  
-    this.numberOfGuests = 1;
-   
+    this.selectedDishes=[]; // should be set by cookies
     
 	this.setNumberOfGuests = function(num) {
         
         this.numberOfGuests = num;
+        
+        
+        $cookieStore.put('numberOfGuest', num);
     
 	}
 
@@ -70,6 +71,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
                 
             }
         }
+        console.log(totalprice);
         return totalprice;
 	}
 
@@ -78,19 +80,19 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
 
 	this.addDishToMenu = function() {
 		var length = this.selectedDishes.length;
-        var index = this.selectedDishes.indexOf(self.SingleDish);
+        //var index = this.selectedDishes.indexOf(self.SingleDish);
         var SeDishes = this.selectedDishes;
         //TODO Lab 2 
         for (i=0; i<length;i++) {
 
             if(SeDishes[i].Category === self.SingleDish.Category) {
-            SeDishes.splice(index,1);
+                SeDishes.splice(i,1);
             }; 
             
         };
         SeDishes.push(self.SingleDish);
         self.selectedDishes = SeDishes;
-
+        
 	}
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
