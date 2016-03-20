@@ -5,7 +5,7 @@ var SingleDish = function (container, model) {
 	
     this.container = container;
     this.container.append("<img id='loadingSingledish' src='images/avokado.gif'/>");
-    container.html('<div class="row"><div class="col-md-4" id="dishcontent"></div></div>');
+    container.html('<div class="row"><div class="col-md-6" id="dishcontent"></div></div>');
 
     container.find("#dishcontent").after('<div class="col-md-4" id="ingTable"><h3>Ingredients for '+model.getNumberOfGuests()+' people</h3><div id="ingredientTable"></div><button id="addDish" class="btn">Add dish</button></div>');
     container.find("#dishcontent").append('<div id="DISH"></div><button id="backToSelect" class="btn">Back to select dish</button>');
@@ -38,7 +38,7 @@ var SingleDish = function (container, model) {
         if(obj==="getDish"){
             
             container.find("#DISH").empty();
-            container.find("#DISH").html('<h1>'+model.singleDish.Title+'</h1><div><img src="'+model.singleDish.ImageURL+'"></div><p class="discription">'+model.singleDish.Description+'</p>');
+            container.find("#DISH").html('<h1>'+model.singleDish.Title+'</h1><div><img style="width:200% height:200%" class="img-responsive" src="'+model.singleDish.ImageURL+'"></div><p class="discription">'+model.singleDish.Description+'</p>');
             container.find('#ingredientTable').empty();
             createTable(model.singleDish.Ingredients);
         }
